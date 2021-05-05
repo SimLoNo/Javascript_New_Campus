@@ -1,0 +1,9 @@
+ac a a   c
+E  E E   
+         
+e  e e   
+A  A A   
+a  c a   
+E    E   
+        
+C        
