@@ -1,18 +1,10 @@
 export default class Room{
 	constructor(tile){
 		this.TILESIZE = tile;
-		//this.map_width = width
-        //this.map_height = height
-        this.loader = new THREE.TextureLoader();
 
-        this.pcTextureCode = this.loader.load('./assets/ComputerTextureV9Code.png');
-        this.pcTextureCode.flipY = false;
-
-        this.ChairBlankTexture = this.loader.load('./assets/ChairV1.png');
-        this.ChairBlankTexture.flipY = false;
-
+        // Array til at gemme texture, til at bruge på modeller.
         this.textures1 = [
-            './assets/ComputerTextureV9Code.png',
+            './assets/ComputerTextureV9Small.png',
             './assets/ChairV1.png',
             './assets/12.jpg',
             './assets/13.jpg',
@@ -34,7 +26,6 @@ export default class Room{
             './assets/',
             './assets/',
         ]
-        this.textures2;
 
         
         
@@ -70,28 +61,8 @@ export default class Room{
 		return array_tmp;
     }
 
-    add_Texture(mesh =new three.gltfLoader,number){
-        var tempTexture = loader.load('./assets/ComputerTextureV9Code.png')
-        /*mesh.traverse ( ( o ) => {
-            if ( o.isMesh ) {
-              // note: for a multi-material mesh, `o.material` may be an array,
-              // in which case you'd need to set `.map` on each value.
-              o.material.map = tempTexture
-            }
-            
-        });*/
-        //return mesh;
-    }
-    get_texture(){
-        var textureArray = []
-        this.textures.forEach(element => {
-            textureArray.push(this.loader.load(element))
-            console.log("Element in get_textures: "+element)
-        });
-        console.log("array before return: "+textureArray)
-        this.textures2 = textureArray;
-    }
-
+    
+    // Metode der bliver kaldt, til at indsætte modeller i banen.
     make_Model(model,textureNumber,scene,tempX,tempY,tempZ,direction){
         let modelLoader = new THREE.GLTFLoader();
         let loader = new THREE.TextureLoader();
@@ -101,10 +72,9 @@ export default class Room{
             var mesh;
             mesh = gltf.scene;
             mesh.scale.set(1,1,1);
+            // Tildeler textur til modellen.
             mesh.traverse ( ( o ) => {
                 if ( o.isMesh ) {
-                  // note: for a multi-material mesh, `o.material` may be an array,
-                  // in which case you'd need to set `.map` on each value.
                   o.material.map = texture
                 }
                 
@@ -120,15 +90,13 @@ export default class Room{
     
     Room_a(startPosition, scene){
         let modelLoader = new THREE.GLTFLoader();
-        let loader = new THREE.TextureLoader()
-        var roomId = 'Room_a';
+        var roomId = 'Room_a'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/'+roomId+'.txt');
-        //var texture = this.get_texture();
-        var pcTexture = loader.load('./assets/ComputerTextureV9Code.png')
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
 
         for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
                 let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
                 let tempY = (-2.5*this.TILESIZE);
                 let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
@@ -137,25 +105,7 @@ export default class Room{
                     case ' ':
                         break;
                     case '1':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
-                    /*modelLoader.load('./assets/PCDeskV5Blank.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        mesh.traverse ( ( o ) => {
-                            if ( o.isMesh ) {
-                              // note: for a multi-material mesh, `o.material` may be an array,
-                              // in which case you'd need to set `.map` on each value.
-                              o.material.map = pcTexture
-                            }
-                            
-                        });
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-
-                        })*/
+                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
                         break;
                     case '2':
                         this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
@@ -164,20 +114,8 @@ export default class Room{
                         break;
                     case '4':
                         this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
-                        /*modelLoader.load('./assets/ChairBlank.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })*/
                         break;
-                    case '5':
+                    case '5': // Mangler modelerstatning.
                         modelLoader.load('./assets/ClosetV1.gltf', function(gltf){
 						
 						
@@ -191,7 +129,7 @@ export default class Room{
                         mesh.rotation.y = 180 * Math.PI / 180
                         })
                         break;
-                    case '6':
+                    case '6': // Mangler modelerstatning.
                         modelLoader.load('./assets/BookcaseV1.gltf', function(gltf){
 						
 						
@@ -216,13 +154,13 @@ export default class Room{
     
     Room_b(startPosition, scene){
         let modelLoader = new THREE.GLTFLoader();
-        var roomId = "Room_b";
+        var roomId = "Room_b"; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/'+roomId+'.txt');
-        //var texture = this.get_texture();
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
 
         for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
+                    // gemmer placeringsposition i variabler, til at give modellerne deres position
                     let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
 					let tempY = (-2.5*this.TILESIZE);
                     let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
@@ -231,18 +169,9 @@ export default class Room{
                     case ' ':
                         break;
                     case '1':
-                    modelLoader.load('./assets/CiscoRackBlank.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-						mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-
-                        })
+                        this.make_Model('./assets/CiscoRackBlank.gltf',9, scene,tempX,tempY,tempZ,0)
                         break;
-                    case '2':
+                    case '2': // Mangler texturerstatning.
                         modelLoader.load('./assets/PCDeskV5PacketTracer.gltf', function(gltf){
 						
 						
@@ -257,21 +186,10 @@ export default class Room{
                         break;
 
                     case '3':
-                        modelLoader.load('./assets/CiscoRackBlank.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                        this.make_Model('./assets/CiscoRackBlank.gltf',9, scene,tempX,tempY,tempZ,180)
                         break;
 
-                    case '4':
+                    case '4': // Mangler texturerstatning.
                         modelLoader.load('./assets/PCDeskV5PacketTracer.gltf', function(gltf){
 						
 						
@@ -286,7 +204,7 @@ export default class Room{
                         })
                         break;
 
-                    case '5':
+                    case '5': //Mangler modelerstatning og texturerstatning.
                         modelLoader.load('./assets/DeskWorkSize2V1Switch.gltf', function(gltf){
 						
 						
@@ -300,7 +218,7 @@ export default class Room{
                         })
                         break;
 
-                    case '6':
+                    case '6': // Mangler texturerstatning.
                         modelLoader.load('./assets/PCDeskV5PacketTracer.gltf', function(gltf){
 						
 						
@@ -315,20 +233,9 @@ export default class Room{
                         })
                         break;
                     case '7':
-                        modelLoader.load('./assets/ChairBlank.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
                         break;
-                    case '8':
+                    case '8': // Mangler modelerstatning og texturerstatning.
                         modelLoader.load('./assets/PrinterV2.gltf', function(gltf){
 						
 						
@@ -350,14 +257,13 @@ export default class Room{
     }
 
     Room_c(startPosition, scene){
-        let modelLoader = new THREE.GLTFLoader();
-        var roomId = "Room_c";
+        var roomId = "Room_c"; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/'+roomId+'.txt');
-        //var texture = this.get_texture();
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
 
         for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
+                    // gemmer placeringsposition i variabler, til at give modellerne deres position
                     let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
 					let tempY = (-2.5*this.TILESIZE);
                     let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
@@ -366,61 +272,18 @@ export default class Room{
                     case ' ':
                         break;
                     case 'a':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
-                    /*modelLoader.load('./assets/PCDeskV5Blank.gltf', function(gltf){
-                        var mesh;
-						mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-
-                        })*/
+                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'A':
                         this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,180)
-                        /*modelLoader.load('./assets/PCDeskV5Blank.gltf', function(gltf){
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        mesh = this.add_Texture(mesh,texture[1][0])
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })*/
                         break;
 
                     case 'b':
                         this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,90)
-                        /*modelLoader.load('./assets/PCDeskV5Blank.gltf', function(gltf){
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        mesh = this.add_Texture(mesh,texture[1][0])
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 90 * Math.PI / 180
-                        })*/
                         break;
 
                     case 'B':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
-                        /*modelLoader.load('./assets/PCDeskV5Blank.gltf', function(gltf){
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        mesh = this.add_Texture(mesh,texture[1][0])
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = -90 * Math.PI / 180
-                        })*/
+                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
                         break;
 
                     case 'c':
@@ -458,15 +321,13 @@ export default class Room{
 
     Room_d(startPosition, scene){
         let modelLoader = new THREE.GLTFLoader();
-        var roomId = 'Room_d';
+        var roomId = 'Room_d'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/'+roomId+'.txt');
-        //var texture = this.get_texture();
-
-        
+        var room =  this.load_txt_file('assets/'+roomId+'.txt');  // Indlæser rummets array fra en tekstfil.
 
         for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
                 let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
                 let tempY = (-2.5*this.TILESIZE);
                 let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
@@ -486,7 +347,7 @@ export default class Room{
                     case 'B':
                     this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'c':
+                    case 'c': // Mangler texturerstatning
                     modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
@@ -498,7 +359,7 @@ export default class Room{
 
                         })
                         break;
-                    case 'C':
+                    case 'C': // Mangler texturerstatning
                     modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
@@ -510,7 +371,7 @@ export default class Room{
                         mesh.rotation.y = 180 * Math.PI / 180
                         })
                         break;
-                    case 'd':
+                    case 'd': // Mangler texturerstatning
                     modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
@@ -522,7 +383,7 @@ export default class Room{
                         mesh.rotation.y = 90 * Math.PI / 180
                         })
                         break;
-                    case 'D':
+                    case 'D': // Mangler texturerstatning
                     modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
@@ -535,18 +396,18 @@ export default class Room{
                         })
                         break;
                     case 'e':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'E':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'f':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'F':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'g':
+                    case 'g': // Mangler modelerstatning og texturerstatning.
                         modelLoader.load('./assets/ClosetV1.gltf', function(gltf){
 						
 						
@@ -560,7 +421,7 @@ export default class Room{
                         mesh.rotation.y = 180 * Math.PI / 180
                         })
                         break;
-                    case 'h':
+                    case 'h': // Mangler modelerstatning og texturerstatning.
                         modelLoader.load('./assets/BookcaseV1.gltf', function(gltf){
 						
 						
@@ -585,15 +446,13 @@ export default class Room{
 
     Room_e(startPosition, scene){
         let modelLoader = new THREE.GLTFLoader();
-        var roomId = 'Room_e';
+        var roomId = 'Room_e'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/'+roomId+'.txt');
-        //var pcTextureCode = this.loader.load('./assets/ComputerTextureV9Code.png');
-        //pcTextureCode.flipY = false;
-        //var texture = this.get_texture();
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
 
         for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
                 let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
                 let tempY = (-2.5*this.TILESIZE);
                 let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
@@ -605,16 +464,16 @@ export default class Room{
                         this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'A':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,180)
+                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'b':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,90)
+                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'B':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'c':
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
+                    case 'c': // Mangler texturerstatning.
+                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
                         mesh.scale.set(1,1,1);
@@ -625,8 +484,8 @@ export default class Room{
 
                         })
                         break;
-                    case 'C':
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
+                    case 'C': // Mangler texturerstatning.
+                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
                         mesh.scale.set(1,1,1);
@@ -637,8 +496,8 @@ export default class Room{
                         mesh.rotation.y = 180 * Math.PI / 180
                         })
                         break;
-                    case 'd':
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
+                    case 'd': // Mangler texturerstatning.
+                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
                         mesh.scale.set(1,1,1);
@@ -649,8 +508,8 @@ export default class Room{
                         mesh.rotation.y = 90 * Math.PI / 180
                         })
                         break;
-                    case 'D':
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
+                    case 'D': // Mangler texturerstatning.
+                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
 						var mesh;
 						mesh = gltf.scene;
                         mesh.scale.set(1,1,1);
@@ -662,18 +521,18 @@ export default class Room{
                         })
                         break;
                     case 'e':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'E':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'f':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'F':
-                    this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'g':
+                    case 'g': // Mangler modelerstatning og texturerstatning.
                         modelLoader.load('./assets/ClosetV1.gltf', function(gltf){
 						
 						
@@ -687,7 +546,7 @@ export default class Room{
                         mesh.rotation.y = -90 * Math.PI / 180
                         })
                         break;
-                    case 'h':
+                    case 'h': // Mangler modelerstatning og texturerstatning.
                         modelLoader.load('./assets/BookcaseV1.gltf', function(gltf){
 						
 						

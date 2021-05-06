@@ -199,45 +199,7 @@ export default class Level{
 		alight.intensity = 0.4;
 		scene.add( alight );
 		
-		let modelLoader = new THREE.GLTFLoader();
-		let Mesh;
-
-        /*modelLoader.load('./assets/testfigur.gltf', function(gltf) {
-			Mesh = gltf.scene;
-			Mesh.scale.set(3.5,3.5,3.5);
-			scene.add(Mesh);
-            Mesh.position.x = 5;
-            Mesh.position.y = -2.5;
-            Mesh.position.z = -10;
-			});
-			
-		modelLoader.load('./assets/fire_extinguisher.gltf', function(gltf) {
-			Mesh = gltf.scene.clone();
-			Mesh.scale.set(0.1,0.1,0.1);
-			Mesh.position.x = 6;
-			Mesh.position.y = -0.75;
-			Mesh.position.z = 5.7;
-			Mesh.rotation.y = 1.5* Math.PI;
-			scene.add(Mesh);
-			});	
 		
-        modelLoader.load('./assets/lokum.gltf', function(gltf) {
-            Mesh = gltf.scene;
-            Mesh.scale.set(0.35,0.35,0.35);
-            scene.add(Mesh);
-            Mesh.position.x = 4.8;
-            Mesh.position.y = -0.75;
-            Mesh.position.z = 10;
-        });
-		modelLoader.load('./assets/fridgev2.gltf', function(gltf) {
-            Mesh = gltf.scene;
-            Mesh.scale.set(1,1,1);
-            scene.add(Mesh);
-            Mesh.position.x = 4.8;
-            Mesh.position.y = -0.75;
-            Mesh.position.z = 12;
-			Mesh.rotation.y = Math.PI;
-        });*/
 		
 	}
 }
