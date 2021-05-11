@@ -3,17 +3,53 @@ export default class Room{
 		this.TILESIZE = tile;
 
         // Array til at gemme texture, til at bruge på modeller.
-        this.textures1 = [
-            './assets/ComputerTextureV9Small.png',
-            './assets/ChairV1.png',
-            './assets/12.jpg',
-            './assets/13.jpg',
-            './assets/BagChairBlank.png',
-            './assets/BDSpotV1.png',
-            './assets/CouchV1.png',
+        this.textureArray = [
+            './assets/ComputerTextureV10Code.png',
+            './assets/ChairV2.png',
+            './assets/BagchairV2.png',
+            './assets/BDSpotV2.png',
+            './assets/CouchV2.png',
             './assets/DarkPlastic.jpg',
-            './assets/KitchendeskV2.png',
-            './assets/ServerRack.png',
+            './assets/KitchendeskV3.png',
+            './assets/ServerRackV2.png',
+            './assets/CouchV2.png',
+            './assets/VRStand.png',
+            './assets/ComputerTextureV10Gaming.png',
+            './assets/ComputerTextureV10InfoStand.png',
+            './assets/ComputerTextureV10PacketTracer.png',
+            './assets/ComputerTextureV10Unity.png',
+            './assets/ComputerTextureV10VR.png',
+            './assets/PCDeskV3.png',
+            './assets/Refrigerator.png',
+            './assets/VRStand.png',
+            './assets/Cardboard.png',
+            './assets/',
+            './assets/',
+            './assets/',
+            './assets/',
+            './assets/',
+            './assets/',
+            './assets/',
+            './assets/',
+        ]
+
+        this.modelArray = [
+            './assets/BDSpotV2Blank.gltf',
+            './assets/BagchairV1Blank.gltf',
+            './assets/BookcaseV1Blank.gltf',
+            './assets/ChairBlank.gltf',
+            './assets/CiscoRackBlank.gltf',
+            './assets/ClosetV1Blank.gltf',
+            './assets/DeskWorkSize2V1PCBlank.gltf',
+            './assets/DeskWorkSize2V1SwitchBlank.gltf',
+            './assets/FridgeV4Blank.gltf',
+            './assets/InfoStandV1Blank.gltf',
+            './assets/KitchenDeskV2BaseBlank.gltf',
+            './assets/PCDeskV5Blank.gltf',
+            './assets/PrinterV1Blank.gltf',
+            './assets/VRStandV1Blank.gltf',
+            './assets/Cardboxes.gltf',
+            './assets/Couch2V1Blank.gltf',
             './assets/',
             './assets/',
             './assets/',
@@ -24,7 +60,7 @@ export default class Room{
             './assets/',
             './assets/',
             './assets/',
-            './assets/',
+            './assets/'
         ]
 
         
@@ -66,7 +102,7 @@ export default class Room{
     make_Model(model,textureNumber,scene,tempX,tempY,tempZ,direction){
         let modelLoader = new THREE.GLTFLoader();
         let loader = new THREE.TextureLoader();
-        var texture = loader.load(this.textures1[textureNumber])
+        var texture = loader.load(this.textureArray[textureNumber])
         texture.flipY = false;
         modelLoader.load(model, function(gltf){
             var mesh;
@@ -89,7 +125,6 @@ export default class Room{
     }
     
     Room_a(startPosition, scene){
-        let modelLoader = new THREE.GLTFLoader();
         var roomId = 'Room_a'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
         var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
@@ -105,43 +140,21 @@ export default class Room{
                     case ' ':
                         break;
                     case '1':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
                         break;
                     case '2':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
                         break;
                     case '3':
                         break;
                     case '4':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
                         break;
-                    case '5': // Mangler modelerstatning.
-                        modelLoader.load('./assets/ClosetV1.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case '5':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
                         break;
-                    case '6': // Mangler modelerstatning.
-                        modelLoader.load('./assets/BookcaseV1.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case '6':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
                         break;
                         
                 }
@@ -169,84 +182,32 @@ export default class Room{
                     case ' ':
                         break;
                     case '1':
-                        this.make_Model('./assets/CiscoRackBlank.gltf',9, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,0)
                         break;
-                    case '2': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5PacketTracer.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        })
+                    case '2':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
                         break;
 
                     case '3':
-                        this.make_Model('./assets/CiscoRackBlank.gltf',9, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,180)
                         break;
 
-                    case '4': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5PacketTracer.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = -90 * Math.PI / 180
-                        })
+                    case '4':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,-90)
                         break;
 
-                    case '5': //Mangler modelerstatning og texturerstatning.
-                        modelLoader.load('./assets/DeskWorkSize2V1Switch.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        })
+                    case '5':
+                        this.make_Model(this.modelArray[7],15, scene,tempX,tempY,tempZ,0)
                         break;
 
-                    case '6': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5PacketTracer.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case '6':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
                         break;
                     case '7':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
                         break;
-                    case '8': // Mangler modelerstatning og texturerstatning.
-                        modelLoader.load('./assets/PrinterV2.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        })
+                    case '8':
+                        this.make_Model(this.modelArray[12],1, scene,tempX,tempY,tempZ,0)
                         break;
                 }
                 
@@ -272,44 +233,44 @@ export default class Room{
                     case ' ':
                         break;
                     case 'a':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'A':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
                         break;
 
                     case 'b':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,90)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
                         break;
 
                     case 'B':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
                         break;
 
                     case 'c':
-                        this.make_Model('./assets/BDSpotBlank.gltf',5, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,0)
                         break;
 
                     case 'C':
-                        this.make_Model('./assets/BDSpotBlank.gltf',5, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'd':
-                        this.make_Model('./assets/BDSpotBlank.gltf',5, scene,tempX,tempY,tempZ,90)
+                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'D':
-                        this.make_Model('./assets/BDSpotBlank.gltf',5, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,-90)
                         break;
                     case 'e':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'E':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'f':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'F':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
                         break;
                 }
                 
@@ -336,104 +297,46 @@ export default class Room{
                     case ' ':
                         break;
                     case 'a':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'A':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,180)
+                    this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'b':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,90)
+                    this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'B':
-                    this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
+                    this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'c': // Mangler texturerstatning
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-						mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-
-                        })
+                    case 'c':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
                         break;
-                    case 'C': // Mangler texturerstatning
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-						mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case 'C':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
                         break;
-                    case 'd': // Mangler texturerstatning
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-						mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-                        mesh.rotation.y = 90 * Math.PI / 180
-                        })
+                    case 'd':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,90)
                         break;
-                    case 'D': // Mangler texturerstatning
-                    modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-						mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-                        mesh.rotation.y = -90 * Math.PI / 180
-                        })
+                    case 'D':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,-90)
                         break;
                     case 'e':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'E':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'f':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'F':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'g': // Mangler modelerstatning og texturerstatning.
-                        modelLoader.load('./assets/ClosetV1.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case 'g':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
                         break;
-                    case 'h': // Mangler modelerstatning og texturerstatning.
-                        modelLoader.load('./assets/BookcaseV1.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case 'h':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
                         break;
                         
                 }
@@ -461,104 +364,434 @@ export default class Room{
                     case ' ':
                         break;
                     case 'a':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'A':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'b':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,90)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'B':
-                        this.make_Model('./assets/PCDeskV5Blank.gltf',0, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'c': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-
-                        })
+                    case 'c':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
                         break;
-                    case 'C': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-                        mesh.rotation.y = 180 * Math.PI / 180
-                        })
+                    case 'C':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
                         break;
-                    case 'd': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-                        mesh.rotation.y = 90 * Math.PI / 180
-                        })
+                    case 'd':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,90)
                         break;
-                    case 'D': // Mangler texturerstatning.
-                        modelLoader.load('./assets/PCDeskV5WoW.gltf', function(gltf){
-						var mesh;
-						mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-						scene.add(mesh);
-						mesh.position.x = tempX;
-						mesh.position.y = tempY;
-						mesh.position.z = tempZ;
-                        mesh.rotation.y = -90 * Math.PI / 180
-                        })
+                    case 'D':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,-90)
                         break;
                     case 'e':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,0)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
                         break;
                     case 'E':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,180)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
                         break;
                     case 'f':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,90)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
                         break;
                     case 'F':
-                        this.make_Model('./assets/ChairBlank.gltf',1, scene,tempX,tempY,tempZ,-90)
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'g': // Mangler modelerstatning og texturerstatning.
-                        modelLoader.load('./assets/ClosetV1.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = -90 * Math.PI / 180
-                        })
+                    case 'g':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,-90)
                         break;
-                    case 'h': // Mangler modelerstatning og texturerstatning.
-                        modelLoader.load('./assets/BookcaseV1.gltf', function(gltf){
-						
-						
-                        var mesh;
-                        mesh = gltf.scene;
-                        mesh.scale.set(1,1,1);
-                        scene.add(mesh);
-                        mesh.position.x = tempX;
-                        mesh.position.y = tempY;
-                        mesh.position.z = tempZ;
-                        mesh.rotation.y = -90 * Math.PI / 180
-                        })
+                    case 'h':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,-90)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_f(startPosition, scene){
+        var roomId = 'Room_f'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,90)
+                        break;
+                    case 'A':
+                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,-90)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_g(startPosition, scene){
+        var roomId = 'Room_g'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,90)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,90)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'C':
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'd':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'D':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_h(startPosition, scene){
+        var roomId = 'Room_h'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'd':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,-90)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_i(startPosition, scene){
+        var roomId = 'Room_i'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'A':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'B':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'd':
+                        this.make_Model(this.modelArray[6],0, scene,tempX,tempY,tempZ,-180)
+                        break;
+                    case 'e':
+                        this.make_Model(this.modelArray[7],15, scene,tempX,tempY,tempZ,180)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_j(startPosition, scene){
+        var roomId = 'Room_j'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[13],17, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[11],14, scene,tempX,tempY,tempZ,90)
+                        break;
+                    case 'B':
+                        this.make_Model(this.modelArray[11],14, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'C':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_k(startPosition, scene){
+        var roomId = 'Room_k'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'B':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_l(startPosition, scene){
+        var roomId = 'Room_l'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[12],1, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,-90)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_m(startPosition, scene){
+        var roomId = 'Room_m'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    // Floor 1
+    Room_A(startPosition, scene){
+        var roomId = 'Room_A1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[15],8, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'A':
+                        this.make_Model(this.modelArray[15],8, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
+                        break;
+                    case 'd':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,45)
+                        break;
+                    case 'e':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,135)
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.")
+    }
+
+    Room_B(startPosition, scene){
+        var roomId = 'Room_B1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case 'a':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'A':
+                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'b':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'B':
+                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'c':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'C':
+                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'd':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'D':
+                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
+                        break;
+                    case 'e':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
+                        break;
+                    case 'E':
+                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
                         break;
                         
                 }
