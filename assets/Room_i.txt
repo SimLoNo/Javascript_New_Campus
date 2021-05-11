@@ -1,0 +1,9 @@
+aaabbb     
+           
+c c c    c 
+e e d    d 
+           
+c c c    c 
+d e e    d 
+           
+BBAAABAABBB
