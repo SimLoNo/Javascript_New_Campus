@@ -61,6 +61,9 @@ export default class Level{
 		
 		for (let row = 0; row < grid_floor.length; row++){
 			for (let column = 0; column < grid_floor[row].length; column++){
+					let tempX = (column*this.TILESIZE + 0.5*this.TILESIZE);
+					let tempY = (-2.5*this.TILESIZE);
+					let tempZ = (row*this.TILESIZE + 0.5*this.TILESIZE);
 				switch(grid_floor[row][column]){
 				case " ":
 					break;
@@ -92,6 +95,12 @@ export default class Level{
 					meshw.position.y = floor_number*this.TILESIZE*7 + this.TILESIZE;
 					meshw.position.z = row*this.TILESIZE + 0.5*this.TILESIZE;
 					scene.add(meshw);
+					break;
+				case "3":
+					makeRoom.make_Model('./assets/Stair1V1.gltf',18, scene,tempX,tempY,tempZ,0)
+					break;
+				case "4":
+					makeRoom.make_Model('./assets/Stair2V1.gltf',18, scene,tempX,tempY,tempZ,-90)
 					break;
 				case "L":
 					var light3 = new THREE.PointLight(0xFFFFDD,1,8,2);

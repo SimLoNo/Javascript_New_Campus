@@ -50,7 +50,7 @@ export default class Room{
             './assets/VRStandV1Blank.gltf',
             './assets/Cardboxes.gltf',
             './assets/Couch2V1Blank.gltf',
-            './assets/',
+            './assets/CanteenTableV1.gltf',
             './assets/',
             './assets/',
             './assets/',
