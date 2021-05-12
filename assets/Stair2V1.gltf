@@ -1,0 +1,105 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cube.001",
+            "translation" : [
+                0,
+                0.20000000298023224,
+                0
+            ]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 50,
+            "max" : [
+                0.75,
+                3.299999952316284,
+                0.25
+            ],
+            "min" : [
+                -0.75,
+                -0.20000000298023224,
+                -3.5
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 50,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 50,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 93,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 600,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 600,
+            "byteOffset" : 600
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 400,
+            "byteOffset" : 1200
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 186,
+            "byteOffset" : 1600
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1788,
+            "uri" : "data:application/octet-stream;base64,AABAv83MTL4AAIA+AABAv83MTL4AAIA+AABAv83MTL4AAIA+AABAv83MTL4AAGDAAABAv83MTL4AAGDAAABAv83MTL4AAGDAAABAP83MTL4AAIA+AABAP83MTL4AAIA+AABAP83MTL4AAIA+AABAP83MTL4AAGDAAABAP83MTL4AAGDAAABAP83MTL4AAGDAAAAAAM3MTL4AAGDAAAAAAM3MTL4AAGDAAAAAAM3MTL4AAIA+AAAAAM3MTL4AAIA+AAAAAM3MTL4AAIA+AAAAAM3MTL4AAIA+AABAv83MTL5KKjzAAABAv83MTL5KKjzAAABAv83MTL5KKjzAAABAP83MTL5KKjzAAABAP83MTL5KKjzAAABAP2Zmxj9KKjzAAABAP2Zmxj9KKjzAAABAP2Zmxj9KKjzAAAAAAGZmxj9KKjzAAAAAAGZmxj9KKjzAAAAAAGZmxj9KKjzAAAAAAGZmxj9KKjzAAAAAAGZmxj9KKjzAAAAAAM3MTL5KKjzAAAAAADMzU0AAAIA+AAAAADMzU0AAAIA+AAAAADMzU0AAAIA+AABAvzMzU0AAAIA+AABAvzMzU0AAAIA+AABAvzMzU0AAAIA+AABAv2Zmxj9KKjzAAABAv2Zmxj9KKjzAAABAv2Zmxj9KKjzAAABAv2Zmxj9KKjzAAABAv2Zmxj8AAGDAAABAv2Zmxj8AAGDAAABAv2Zmxj8AAGDAAAAAAGZmxj8AAGDAAAAAAGZmxj8AAGDAAABAP2Zmxj8AAGDAAABAP2Zmxj8AAGDAAABAP2Zmxj8AAGDAAACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AAAAAAAAgL8AAACAAAAAADdyYD9TQPY+AACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AAAAADdyYD9TQPY+AACAPwAAAAAAAACAAACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AAAAAAAAgL8AAACAAACAPwAAAAAAAACAAAAAADdyYD9TQPY+AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAADdyYD9TQPa+AAAAADdyYD9TQPY+AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AAAAADdyYD9TQPa+AACAPwAAAAAAAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAADdyYD9TQPa+AACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAADdyYD9TQPa+AAAAAAAAgD8AAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAgPwAAgD8AAAA+AACAPgAAID8AAAAAAAAgPwAAQD8AAAA+AAAAPwAAID8AAEA/AADAPgAAgD4AACA/AACAPgAAwD4AAIA+AADAPgAAAD8AACA/AAAAPwAAID8AAAA/AACAPgAAAD8AACA/AAAgPwAAgD4AAIA+AAAgPwAAAD4AAEA/AACAPgAAQD8AAIA+AAAgPwAAYD8AAAA+AADAPgAAYD8AAMA+AADAPgAAwD4AAMA+AADAPgAAID8AAMA+AAAgPwAAwD4AACA/AADAPgAAQD8AAMA+AABAPwAAwD4AAEA/AADAPgAAQD8AAMA+AABAPwAAwD4AAIA+AADAPgAAID8AAAA+AABAPwAAgD4AAEA/AACAPgAAID8AAIA/AAAgPwAAAAAAAGA/AACAPgAAID8AAGA/AABgPwAAwD4AAGA/AADAPgAAYD8AAMA+AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AAAgPwAAID8AAEA/AAAAPwAAID8AAAA/AAAgPwAAAD8AACA/AAAAPxYAGQAIAB8AFQAGAB8ABgAOABIAAAAjABIAIwAmABcAHAAQABcAEAAHABMAHwAOABMADgABAAQADAAfAAQAHwATABkACwAxAAwACQAVAAwAFQAfAAsAGQAWABsAKAAlABsAJQAhABoAFAAnAAIADwAgAAIAIAAkABEAHgAiADAALgAdADAAHQAYAC4ALAApAC4AKQAdAAMAEgAmAAMAJgAqAA0ABQArAA0AKwAtAAoADQAtAAoALQAvAAAA"
+        }
+    ]
+}
