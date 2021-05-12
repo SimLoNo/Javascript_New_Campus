@@ -1,3 +1,4 @@
+import MakeRoom from './Room.js';
 export default class Level{
 	constructor(){
 		this.TILESIZE = 0.5;
@@ -58,6 +59,7 @@ export default class Level{
 	
 	arr_to_floor(scene,grid_floor,floor_number){
 		// floor 0
+		let makeRoom = new MakeRoom(this.TILESIZE);
 		const loader = new THREE.TextureLoader();
 		const heightMap = loader.load('assets/noise.jpg');
 		const linoleum = loader.load('assets/linoleum.jpg');
@@ -84,7 +86,11 @@ export default class Level{
 				// så den kun skal findes en gang per kolone
 				let row_length = array_temp[row].length;
 				// deklareret her af hensyn til scope:
-				let wall_height, wall_width, floor_height,floor_width;				
+				let wall_height, wall_width, floor_height,floor_width;	
+				
+				let tempX = (column*this.TILESIZE + 0.5*this.TILESIZE);
+				let tempY = (-2.5*this.TILESIZE);
+				let tempZ = (row*this.TILESIZE + 0.5*this.TILESIZE);
 		
 				switch(array_temp[row][column]){
 				case "X":
@@ -191,6 +197,54 @@ export default class Level{
 					this.floor0_walls.add(mesh);
 					scene.add(mesh);
 					break;
+				case "5":
+					// marker det første felt som læst
+					array_temp[row][column] = "X";
+
+					wall_height = 1;
+					wall_width = 1;
+					floor_height = 1;
+					floor_width = 1;
+					// tjek om der er en lignende væg nedenunder eller til højre
+					
+					wall_height = this.get_wall_height(array_temp,row_length, col_length, row,column,"5");
+					floor_width = wall_height;
+					
+					if (wall_height == 1){
+						wall_width = this.get_wall_width(array_temp,row_length, col_length,row,column,"5");
+						floor_width = wall_width;
+					}
+				
+					var geometry = new THREE.BoxGeometry(wall_width * this.TILESIZE,this.TILESIZE*5,wall_height * this.TILESIZE);
+					var material = new THREE.MeshStandardMaterial({ map: wall});
+					var mesh = new THREE.Mesh(geometry,material);
+					mesh.position.x = column*this.TILESIZE + 0.5*this.TILESIZE*wall_width; 
+					mesh.position.y = floor_number*3.5;
+					mesh.position.z = row*this.TILESIZE + 0.5*this.TILESIZE * wall_height;
+					this.floor0_walls.add(mesh);
+					scene.add(mesh);
+
+					// her kunne man godt have indlæsning af gulv
+					
+					
+					
+					
+					// kig OGSÅ ned i array
+					
+					// lav gulv
+					var geometry_floor = new THREE.BoxGeometry(floor_width*this.TILESIZE, this.TILESIZE*2, floor_height*this.TILESIZE);
+
+					linoleum.wrapS = THREE.RepeatWrapping;
+					linoleum.wrapT = THREE.RepeatWrapping;
+					//linoleum.repeat.set(5,5);
+					linoleum.repeat.set(floor_width,floor_height);
+					var material_floor = new THREE.MeshStandardMaterial({map: linoleum});
+					var mesh_floor = new THREE.Mesh(geometry_floor,material_floor);
+					mesh_floor.position.x = column*this.TILESIZE + 0.5*this.TILESIZE*floor_width; 
+					mesh_floor.position.y = -1.5 + 1*3.25;
+					mesh_floor.position.z = row*this.TILESIZE + 0.5*this.TILESIZE * floor_height;
+					scene.add(mesh_floor);
+					break;
 				case "2":
 					// væg med vinduer, kan kun vende en vej pt.
 					array_temp[row][column] = "X";
@@ -209,11 +263,11 @@ export default class Level{
 					var material = new THREE.MeshStandardMaterial({  map: windowwall});
 					var mesh = new THREE.Mesh(geometry,material);
 					mesh.position.x = column*this.TILESIZE + 0.5*this.TILESIZE*wall_width; 
-					mesh.position.y = floor_number*this.TILESIZE*7 -1.5*this.TILESIZE;
+					mesh.position.y = floor_number*this.TILESIZE*6 -0.5*this.TILESIZE;
 					mesh.position.z = row*this.TILESIZE + 0.5*this.TILESIZE*wall_height;
 					scene.add(mesh);
 
-					var geometryw = new THREE.BoxGeometry(this.TILESIZE*wall_width,this.TILESIZE*3,this.TILESIZE/32);
+					var geometryw = new THREE.BoxGeometry(this.TILESIZE*wall_width,this.TILESIZE*4,this.TILESIZE/32);
 					var materialw = new THREE.MeshPhysicalMaterial({ color: 0x0033FF});
 					materialw.transparent = true;
 					materialw.opacity = 0.2;
@@ -222,6 +276,12 @@ export default class Level{
 					meshw.position.y = floor_number*this.TILESIZE*7 + this.TILESIZE;
 					meshw.position.z = row*this.TILESIZE + 0.5*this.TILESIZE*wall_height;
 					scene.add(meshw);
+					break;
+				case "3":
+					makeRoom.make_Model('./assets/Stair1V1.gltf',18, scene,tempX,tempY,tempZ,0)
+					break;
+				case "4":
+					makeRoom.make_Model('./assets/Stair2V1.gltf',18, scene,tempX,tempY,tempZ,-90)
 					break;
 				case "L":
 					var light3 = new THREE.PointLight(0xFFFFDD,1,8,2);
@@ -234,6 +294,110 @@ export default class Level{
 					const pointLightHelper = new THREE.PointLightHelper( light3, sphereSize );
 					scene.add( pointLightHelper );
 					*/
+					break;
+				case "a":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_a(roomStartPosition, scene)
+					break;
+				case "b":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_b(roomStartPosition, scene)
+					break;
+				case "c":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_c(roomStartPosition, scene)
+					break;
+				case "d":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_d(roomStartPosition, scene)
+					break;
+				case "e":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_e(roomStartPosition, scene)
+					break;
+				case "f":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_f(roomStartPosition, scene)
+					break;
+				case "g":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_g(roomStartPosition, scene)
+					break;
+				case "h":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_h(roomStartPosition, scene)
+					break;
+				case "i":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_i(roomStartPosition, scene)
+					break;
+				case "j":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_j(roomStartPosition, scene)
+					break;
+				case "k":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_k(roomStartPosition, scene)
+					break;
+				case "l":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_l(roomStartPosition, scene)
+					break;
+				case "m":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_m(roomStartPosition, scene)
+					break;
+				case "A":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_A(roomStartPosition, scene)
+					break;
+				case "B":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_B(roomStartPosition, scene)
+					break;
+				case "C":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_C(roomStartPosition, scene)
+					break;
+				case "D":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_D(roomStartPosition, scene)
+					break;
+				case "H":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_H(roomStartPosition, scene)
+					break;
+				case "I":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_I(roomStartPosition, scene)
+					break;
+				case "J":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_J(roomStartPosition, scene)
+					break;
+				case "K":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_K(roomStartPosition, scene)
+					break;
+				case "M":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_M(roomStartPosition, scene)
+					break;
+				case "N":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_N(roomStartPosition, scene)
+					break;
+				case "O":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_O(roomStartPosition, scene)
+					break;
+				case "P":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_P(roomStartPosition, scene)
+					break;
+				case "Q":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_Q(roomStartPosition, scene)
 					break;
 				}
 			}
@@ -348,43 +512,6 @@ export default class Level{
 		
 		let modelLoader = new THREE.GLTFLoader();
 		let Mesh;
-
-        modelLoader.load('./assets/testfigur.gltf', function(gltf) {
-			Mesh = gltf.scene;
-			Mesh.scale.set(3.5,3.5,3.5);
-			scene.add(Mesh);
-            Mesh.position.x = 5;
-            Mesh.position.y = -2.5;
-            Mesh.position.z = -10;
-			});
-			
-		modelLoader.load('./assets/fire_extinguisher.gltf', function(gltf) {
-			Mesh = gltf.scene.clone();
-			Mesh.scale.set(0.1,0.1,0.1);
-			Mesh.position.x = 6;
-			Mesh.position.y = -0.75;
-			Mesh.position.z = 5.7;
-			Mesh.rotation.y = 1.5* Math.PI;
-			scene.add(Mesh);
-			});	
-		
-        modelLoader.load('./assets/lokum.gltf', function(gltf) {
-            Mesh = gltf.scene;
-            Mesh.scale.set(0.35,0.35,0.35);
-            scene.add(Mesh);
-            Mesh.position.x = 4.8;
-            Mesh.position.y = -0.75;
-            Mesh.position.z = 10;
-        });
-		modelLoader.load('./assets/fridgev2.gltf', function(gltf) {
-            Mesh = gltf.scene;
-            Mesh.scale.set(1,1,1);
-            scene.add(Mesh);
-            Mesh.position.x = 4.8;
-            Mesh.position.y = -0.75;
-            Mesh.position.z = 12;
-			Mesh.rotation.y = Math.PI;
-        });
 	
 		// himmel: Giver fejlbesked når den ikke ligger i hovedscriptet, men virker
 		//const loader = new THREE.TextureLoader();
