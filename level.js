@@ -170,6 +170,54 @@ export default class Level{
 					var roomStartPosition = [column,row];
 					makeRoom.Room_A(roomStartPosition, scene)
 					break;
+				case "B":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_B(roomStartPosition, scene)
+					break;
+				case "C":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_C(roomStartPosition, scene)
+					break;
+				case "D":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_D(roomStartPosition, scene)
+					break;
+				case "H":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_H(roomStartPosition, scene)
+					break;
+				case "I":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_I(roomStartPosition, scene)
+					break;
+				case "J":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_J(roomStartPosition, scene)
+					break;
+				case "K":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_K(roomStartPosition, scene)
+					break;
+				case "M":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_M(roomStartPosition, scene)
+					break;
+				case "N":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_N(roomStartPosition, scene)
+					break;
+				case "O":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_O(roomStartPosition, scene)
+					break;
+				case "P":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_P(roomStartPosition, scene)
+					break;
+				case "Q":
+					var roomStartPosition = [column,row];
+					makeRoom.Room_Q(roomStartPosition, scene)
+					break;
 				}
 			}
 		}
