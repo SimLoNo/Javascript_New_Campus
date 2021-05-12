@@ -1,17 +1,16 @@
 export default class Visitor{
-	constructor(scene){
+	constructor(scene,level){
 		
 		this.body = new THREE.Object3D();
 		
-		this.body.position.x = 5;
+		this.body.position.x = 7;
 		this.body.position.y = 0.25;
-		this.body.position.z = 0.5;
+		this.body.position.z = 3;
 		this.body.rotation.y = -Math.PI/2;
 		
-		// midlertidig til test . skift etaga
+		// skift etage (til test)
 		this.groundFloor = true;
 	
-
 		this.moveSpeed = 0.15;
 		this.rotationSpeed = 3 * (Math.PI/180);	//degrees per frame
 
@@ -32,12 +31,11 @@ export default class Visitor{
 			this.body.position.y = 3.75;
 			this.visitorModel.position.y = 3.75;
 		} else{
-			this.body.position.y = 0.25;
 			this.groundFloor = true;
+			this.body.position.y = 0.25;
 			this.visitorModel.position.y = 0.25;
 		}
 	}
-	
 	update(level, camera_FP){
 
 		this.body.rotation.y += this.turnDirection * this.rotationSpeed;
@@ -49,16 +47,12 @@ export default class Visitor{
 
 		// Det ville give mening hvis kameraet er lidt bagved spilleren, afhængigt af spillerens rotation, så man ikke kommer til at kunne se gennem vægge.
 
-		/*
-		// hitdetection
-		if (level.hasWallAt(newX,newZ) == 0 ){	
+		// hitdetection	
+		if (level.hasWallAt(this.groundFloor,newX,newZ) != 1 ){	
 			this.body.position.z = newZ;
 			this.body.position.x = newX;
 		}
-		*/
-		this.body.position.z = newZ;
-		this.body.position.x = newX;
-		
+			
 		this.visitorModel.position.x = this.body.position.x;
 		this.visitorModel.position.z = this.body.position.z;
 
@@ -67,9 +61,8 @@ export default class Visitor{
 		camera_FP.position.z = this.body.position.z;
 		camera_FP.position.x = this.body.position.x;
 		camera_FP.position.y = this.body.position.y;
-		
+	
 		camera_FP.rotation.y = this.body.rotation.y;
-
 	}
 	updatePosition(e,camera_FP){
 	// https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/PointerLockControls.js
