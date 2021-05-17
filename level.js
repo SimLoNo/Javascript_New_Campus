@@ -97,8 +97,7 @@ export default class Level{
 					// elementet er behandlet
 					break;
 				case " ":
-					// her kunne man godt have indlæsning af gulv
-					
+					// her indlæses gulv
 					floor_height = 1;
 					floor_width = 1;
 					
@@ -419,28 +418,31 @@ export default class Level{
 	get_wall_height(array_temp,row_length,col_length, row,column,key){
 		let wall_height = 1;
 
-		if ((row+1 < col_length) && (array_temp[row+1][column] == "1")){
+		if ((row+1 < col_length) && (array_temp[row+1][column] == key)){
 		// tjek ned indtil, der ikke længere er samme væg
 			while ((row+wall_height < col_length) && (array_temp[row+wall_height][column] == key)){
 
 				// følgende er for at få de vandrette vægge til at være de primære. Det ser pænere ud.
 				// der er vist vægge der overlapper pga. dette
 				// det kan gøres endnu smartere fx hvis der er vægge ved siden af hinanden eller krydser.
-		
 				// kig til siderne
-				if ((column+1 >= row_length) && (array_temp[row+wall_height][column+1]) != key){
-					if ((column-1 <= 0) && (array_temp[row+wall_height][column-1] != key)){
-						array_temp[row+wall_height][column] = "X";
-						wall_height++;
-					} 
-				}else{
+				if ((column+1 <= row_length) && (array_temp[row+wall_height][column+1]) == key){
 					wall_height++;
 					// er ikke så vild med break, så det er en midlertidig løsning
 					return wall_height;
 					break;	
+				}else if ((column-1 >= 0) && (array_temp[row+wall_height][column-1] == key)){
+					wall_height++;
+					// er ikke så vild med break, så det er en midlertidig løsning
+					return wall_height;
+					break;		
+				}else{
+						array_temp[row+wall_height][column] = "X";
+						wall_height++;
+					}
 				}
+			
 			}
-		}
 		return wall_height;
 	}
 	get_floor_width(array_temp,row_length,col_length,row,column,key){
