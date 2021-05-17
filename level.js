@@ -263,7 +263,7 @@ export default class Level{
 					var material = new THREE.MeshStandardMaterial({  map: windowwall});
 					var mesh = new THREE.Mesh(geometry,material);
 					mesh.position.x = column*this.TILESIZE + 0.5*this.TILESIZE*wall_width; 
-					mesh.position.y = floor_number*this.TILESIZE*6 -0.5*this.TILESIZE;
+					mesh.position.y = floor_number*this.TILESIZE*7 -1.5*this.TILESIZE;
 					mesh.position.z = row*this.TILESIZE + 0.5*this.TILESIZE*wall_height;
 					scene.add(mesh);
 
