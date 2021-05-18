@@ -49,10 +49,10 @@ export default class Visitor{
 
 		// hitdetection	
 		if (level.hasWallAt(this.groundFloor,newX,newZ) != 1 ){	
-			this.body.position.z = newZ;
-			this.body.position.x = newX;
-		}
 			
+		}
+		this.body.position.z = newZ;
+		this.body.position.x = newX;
 		this.visitorModel.position.x = this.body.position.x;
 		this.visitorModel.position.z = this.body.position.z;
 

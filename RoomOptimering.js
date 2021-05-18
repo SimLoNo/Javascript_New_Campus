@@ -63,7 +63,113 @@ export default class Room{
             './assets/'
         ]
 
-        
+        this.presetsArray = [
+            [
+                ['a',1,1,0],
+                ['A',1,1,0],
+                ['b',1,1,0],
+                ['B',1,1,0],
+                ['c',1,1,0],
+                ['C',1,1,0],
+                ['d',1,1,0],
+                ['D',1,1,0],
+                ['e',1,1,0],
+                ['E',1,1,0],
+                ['f',1,1,0],
+                ['F',1,1,0],
+                ['g',1,1,0],
+                ['G',1,1,0],
+                ['h',1,1,0],
+                ['H',1,1,0],
+                ['i',1,1,0],
+                ['I',1,1,0],
+                ['j',1,1,0],
+                ['J',1,1,0],
+                ['k',1,1,0],
+                ['K',1,1,0],
+                ['l',1,1,0],
+                ['L',1,1,0],
+                ['m',1,1,0],
+                ['M',1,1,0],
+                ['n',1,1,0],
+                ['N',1,1,0],
+                ['o',1,1,0],
+                ['O',1,1,0],
+                ['p',1,1,0],
+                ['P',1,1,0],
+                ['q',1,1,0],
+                ['Q',1,1,0],
+                ['r',1,1,0],
+                ['R',1,1,0],
+                ['s',1,1,0],
+                ['S',1,1,0],
+                ['t',1,1,0],
+                ['T',1,1,0],
+                ['u',1,1,0],
+                ['U',1,1,0],
+                ['v',1,1,0],
+                ['V',1,1,0],
+                ['x',1,1,0],
+                ['X',1,1,0],
+                ['y',1,1,0],
+                ['Y',1,1,0],
+                ['z',1,1,0],
+                ['Z',1,1,0],
+            ],
+            [
+                ['a',1,1,0],
+                ['A',1,1,0],
+                ['b',1,1,0],
+                ['B',1,1,0],
+                ['c',1,1,0],
+                ['C',1,1,0],
+                ['d',1,1,0],
+                ['D',1,1,0],
+                ['e',1,1,0],
+                ['E',1,1,0],
+                ['f',1,1,0],
+                ['F',1,1,0],
+                ['g',1,1,0],
+                ['G',1,1,0],
+                ['h',1,1,0],
+                ['H',1,1,0],
+                ['i',1,1,0],
+                ['I',1,1,0],
+                ['j',1,1,0],
+                ['J',1,1,0],
+                ['k',1,1,0],
+                ['K',1,1,0],
+                ['l',1,1,0],
+                ['L',1,1,0],
+                ['m',1,1,0],
+                ['M',1,1,0],
+                ['n',1,1,0],
+                ['N',1,1,0],
+                ['o',1,1,0],
+                ['O',1,1,0],
+                ['p',1,1,0],
+                ['P',1,1,0],
+                ['q',1,1,0],
+                ['Q',1,1,0],
+                ['r',1,1,0],
+                ['R',1,1,0],
+                ['s',1,1,0],
+                ['S',1,1,0],
+                ['t',1,1,0],
+                ['T',1,1,0],
+                ['u',1,1,0],
+                ['U',1,1,0],
+                ['v',1,1,0],
+                ['V',1,1,0],
+                ['x',1,1,0],
+                ['X',1,1,0],
+                ['y',1,1,0],
+                ['Y',1,1,0],
+                ['z',1,1,0],
+                ['Z',1,1,0],
+            ]
+        ]
+
         
     }
 
@@ -143,12 +249,16 @@ export default class Room{
 
     
     // Metode der bliver kaldt, til at indsætte modeller i banen.
-    make_Model(model,textureNumber,scene,tempX,tempY,tempZ,direction){
+    make_Model(model,scene,tempX,tempY,tempZ){
         let modelLoader = new THREE.GLTFLoader();
         let loader = new THREE.TextureLoader();
-        var texture = loader.load(this.textureArray[textureNumber])
+        
+        console.log('TEXTURE: '+this.modelArray[model][2])
+        console.log('MODEL: '+this.modelArray[model][1])
+        var texture = loader.load(this.textureArray[model][2])
         texture.flipY = false;
-        modelLoader.load(model, function(gltf){
+        
+        modelLoader.load(this.modelArray[model][1], function(gltf){
             var mesh;
             mesh = gltf.scene;
             mesh.scale.set(1,1,1);
@@ -163,12 +273,106 @@ export default class Room{
             mesh.position.x = tempX;
             mesh.position.y = tempY;
             mesh.position.z = tempZ;
-            mesh.rotation.y = direction * Math.PI / 180
+            mesh.rotation.y = model[3] * Math.PI / 180
 
             })
     }
+
+    Make_Room(startPosition,scene,roomPreset,roomId,floor,text1 = 'NA',text2 = 'NA'){
+        console.log(roomId+" Running.")
+        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
+        this.makeCeiling(scene,floor,room.length,room[0].length,startPosition[1],startPosition[0])
+        for (let x = 0; x < room.length; x++) {
+            for (let y = 0; y < room[x].length; y++) {
+                // gemmer placeringsposition i variabler, til at give modellerne deres position
+                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
+                let tempY = (-2.5*this.TILESIZE)+ (floor*3.5);;
+                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
+                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                switch(room[x][y]){
+                    case ' ':
+                        break;
+                    case '1':
+                    
+                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
+                            var element = this.presetsArray[roomPreset][index];
+                            
+                            if(this.presetsArray[roomPreset][index][0] == 'A'){
+                                console.log('!!!!!!!!!!!!!! '+element[0])
+                                console.log('!!!!!!!!!!!!!! '+element[1])
+                                console.log('!!!!!!!!!!!!!! '+element[2])
+                                this.make_Model(index, scene, tempX, tempY, tempZ);
+                                break;
+                                
+                            }
+                            
+                        }
+                        break;
+                    case '2':
+                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
+                            var element = this.presetsArray[roomPreset[index]];
+                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
+                                this.make_Model(element, scene, tempX, tempY, tempZ);
+                                break;
+                                
+                            }
+                            
+                        }
+                        break;
+                    case '3':
+                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
+                            var element = this.presetsArray[roomPreset[index]];
+                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
+                                this.make_Model(element, scene, tempX, tempY, tempZ);
+                                break;
+                                
+                            }
+                            
+                        }
+                        break;
+                    case '4':
+                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
+                            var element = this.presetsArray[roomPreset[index]];
+                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
+                                this.make_Model(element, scene, tempX, tempY, tempZ);
+                                break;
+                                
+                            }
+                            
+                        }
+                        break;
+                    case '5':
+                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
+                            var element = this.presetsArray[roomPreset[index]];
+                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
+                                this.make_Model(element, scene, tempX, tempY, tempZ);
+                                break;
+                                
+                            }
+                            
+                        }
+                        break;
+                    case '6':
+                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
+                            var element = this.presetsArray[roomPreset[index]];
+                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
+                                this.make_Model(element, scene, tempX, tempY, tempZ);
+                                break;
+                                
+                            }
+                            
+                        }
+                        break;
+                        
+                }
+                
+            }
+            
+        }
+        console.log(roomId+" Done.");
+    }
     
-    Room_a(startPosition, scene){
+    /*Room_a(startPosition, scene){
         var roomId = 'Room_a'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
         console.log(roomId+" Running.")
         var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
@@ -206,7 +410,7 @@ export default class Room{
             }
             
         }
-        console.log(roomId+" Done.")
+        console.log(roomId+" Done.");
     }
     
     Room_b(startPosition, scene){
@@ -1804,5 +2008,5 @@ export default class Room{
             
         }
         console.log(roomId+" Done.")
-    }
+    }*/
 }
