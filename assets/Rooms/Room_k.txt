@@ -1,0 +1,9 @@
+cc    a
+      b
+a a    
+b b    
+       
+       
+       
+a a   a
+B b   b
