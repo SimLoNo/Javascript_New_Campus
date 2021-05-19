@@ -6,15 +6,13 @@ export default class Level{
 		this.map_height = 28;
 		this.grid_floor0;
 		this.floor0_walls = new THREE.Group();
-		this.grid_floor1;
-		
-		// floor_height? 3.5?
-		
+		this.grid_floor1;		
     }
 	
 	load_txt_file(file_name){
 		// indlæser data fra txt.fil
 		var request = new XMLHttpRequest();
+		// foretag synkron læsning af fil. Dette forøger indlæsningstiden!
 		request.open('GET', file_name, false);  // 'false' gør kaldet synkront
 		request.send(null);
 
@@ -42,23 +40,21 @@ export default class Level{
 		return array_tmp;
 	}
 	hasWallAt(groundfloor, x,z){
-		// virker ikke pt.
-		// der skal tages højde for, hvilken etage man er på. og hvad man kan gå igennem
 		var mapGridIndexZ = Math.floor(x/this.TILESIZE);
 		var mapGridIndexX = Math.floor(z/this.TILESIZE);
 
-		if (x > 0 || x < this.map_width || z > 0 || z < this.map_height){
+		if (x > 0 && x < this.map_width && z > 0 && z < this.map_height){
 			if (groundfloor){
 				return this.grid_floor0[mapGridIndexX][mapGridIndexZ]
 			} else{
 				return this.grid_floor1[mapGridIndexX][mapGridIndexZ]
 			}
+		}else{
+			return 1;
 		}
-
 	}
 	
 	arr_to_floor(scene,grid_floor,floor_number){
-		// floor 0
 		let makeRoom = new MakeRoom(this.TILESIZE);
 		const loader = new THREE.TextureLoader();
 		const heightMap = loader.load('assets/noise.jpg');
@@ -102,7 +98,8 @@ export default class Level{
 					floor_width = 1;
 					
 					floor_width = this.get_floor_width(array_temp,row_length, col_length, row,column,"1");
-					// kig OGSÅ ned i array
+					
+					// MANGLER. kig OGSÅ ned i array
 					
 					// lav gulv
 					var geometry_floor = new THREE.BoxGeometry(floor_width*this.TILESIZE, this.TILESIZE, floor_height*this.TILESIZE);
