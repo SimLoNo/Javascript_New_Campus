@@ -511,16 +511,5 @@ export default class Level{
 		
 		let modelLoader = new THREE.GLTFLoader();
 		let Mesh;
-	
-		// himmel: Giver fejlbesked når den ikke ligger i hovedscriptet, men virker
-		//const loader = new THREE.TextureLoader();
-		const bg = loader.load(
-		'assets/sky.jpg',
-		() => {
-		const rt = new THREE.WebGLCubeRenderTarget(bg.image.height);
-		rt.fromEquirectangularTexture(screen.renderer,bg);
-		rt.fromEquirectangularTexture(screen.renderer2,bg);
-		scene.background = rt.texture;
-		});
 	}
 }
