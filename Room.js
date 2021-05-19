@@ -96,7 +96,31 @@ export default class Room{
 
 		return array_tmp;
     }
-
+		make_Text(scene,roomName, x, z){
+		// metoden her kan optimeres
+		// den skal også tage parameter med etage
+		const fontLoader = new THREE.FontLoader();
+		fontLoader.load('./assets/fonts/helvetiker_regular.typeface.json', function(font){
+			const color = 0xFF1111;
+			const matDark = new THREE.LineBasicMaterial({color: color, side: THREE.DoubleSide});
+			const matLite = new THREE.MeshBasicMaterial({color: color, transparent: false, opacity: 1, side: THREE.DoubleSide});
+		
+			const shapes = font.generateShapes(roomName, 0.5);
+			const geometry = new THREE.ShapeGeometry(shapes);
+			geometry.computeBoundingBox();
+		
+			const xMid = -0.5*(geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+		
+			geometry.translate(xMid,0,0);
+		
+			const text = new THREE.Mesh(geometry, matLite);
+			text.position.set(x,0.25,z);
+			text.rotation.x = -Math.PI/2
+			scene.add(text);
+			
+			console.log("tekst er tilføjet")
+		});	
+	}
     
     // Metode der bliver kaldt, til at indsætte modeller i banen.
     make_Model(model,textureNumber,scene,tempX,tempY,tempZ,direction){
