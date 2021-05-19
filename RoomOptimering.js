@@ -64,7 +64,7 @@ export default class Room{
         ]
 
         this.presetsArray = [
-            [// Programmerings-kontor
+            [// Programmerings-kontor id: 0
                 ['a',this.modelArray[11],this.textureArray[0],0], //PC Programmering
                 ['A',this.modelArray[11],this.textureArray[0],180], //PC Programmering
                 ['b',this.modelArray[11],this.textureArray[0],90], //PC Programmering
@@ -89,10 +89,10 @@ export default class Room{
                 ['K',this.modelArray[2],this.textureArray[4],180], // Bogreol
                 ['l',this.modelArray[2],this.textureArray[4],90], // Bogreol
                 ['L',this.modelArray[2],this.textureArray[4],-90], // Bogreol
-                ['m',this.modelArray[1],this.textureArray[1],0],
-                ['M',this.modelArray[1],this.textureArray[1],0],
-                ['n',this.modelArray[1],this.textureArray[1],0],
-                ['N',this.modelArray[1],this.textureArray[1],0],
+                ['m',this.modelArray[11],this.textureArray[1],0],
+                ['M',this.modelArray[11],this.textureArray[1],0],
+                ['n',this.modelArray[11],this.textureArray[1],0],
+                ['N',this.modelArray[11],this.textureArray[1],0],
                 ['o',this.modelArray[1],this.textureArray[1],0],
                 ['O',this.modelArray[1],this.textureArray[1],0],
                 ['p',this.modelArray[1],this.textureArray[1],0],
@@ -116,7 +116,7 @@ export default class Room{
                 ['z',this.modelArray[1],this.textureArray[1],0],
                 ['Z',this.modelArray[1],this.textureArray[1],0],
             ],
-            [ //Netvaerks/robot/vaerksted/VR-lab, Netvaerkskontor, Lager og Logistik
+            [ //Netvaerks/robot/vaerksted/VR-lab, Netvaerkskontor, Lager og Logistik id: 1
                 ['a',this.modelArray[4],this.textureArray[7],0], // Cisco rack
                 ['A',this.modelArray[4],this.textureArray[7],180], // Cisco rack
                 ['b',this.modelArray[4],this.textureArray[7],90], // Cisco rack
@@ -166,9 +166,9 @@ export default class Room{
                 ['y',this.modelArray[5],this.textureArray[1],90], // Skab
                 ['Y',this.modelArray[5],this.textureArray[1],-90], // Skab
                 ['z',this.modelArray[13],this.textureArray[17],180], // VR stander
-                ['Z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[12],this.textureArray[1],90], // Printer
             ],
-            [ // Personale-rum/kontor
+            [ // Personale-rum/kontor, Koekken/kantine id: 2
                 ['a',this.modelArray[15],this.textureArray[8],0], // Sofa
                 ['A',this.modelArray[15],this.textureArray[8],180], // Sofa
                 ['b',this.modelArray[15],this.textureArray[8],90], // Sofa
@@ -185,34 +185,34 @@ export default class Room{
                 ['G',this.modelArray[3],this.textureArray[1],180], // Kontorstol
                 ['h',this.modelArray[3],this.textureArray[1],90], // Kontorstol
                 ['H',this.modelArray[3],this.textureArray[1],-90], // Kontorstol
-                ['i',this.modelArray[1],this.textureArray[1],0],
-                ['I',this.modelArray[1],this.textureArray[1],0],
-                ['j',this.modelArray[1],this.textureArray[1],0],
-                ['J',this.modelArray[1],this.textureArray[1],0],
-                ['k',this.modelArray[1],this.textureArray[1],0],
-                ['K',this.modelArray[1],this.textureArray[1],0],
-                ['l',this.modelArray[1],this.textureArray[1],0],
-                ['L',this.modelArray[1],this.textureArray[1],0],
-                ['m',this.modelArray[1],this.textureArray[1],0],
-                ['M',this.modelArray[1],this.textureArray[1],0],
-                ['n',this.modelArray[1],this.textureArray[1],0],
-                ['N',this.modelArray[1],this.textureArray[1],0],
-                ['o',this.modelArray[1],this.textureArray[1],0],
-                ['O',this.modelArray[1],this.textureArray[1],0],
-                ['p',this.modelArray[1],this.textureArray[1],0],
-                ['P',this.modelArray[1],this.textureArray[1],0],
-                ['q',this.modelArray[1],this.textureArray[1],0],
-                ['Q',this.modelArray[1],this.textureArray[1],0],
-                ['r',this.modelArray[1],this.textureArray[1],0],
-                ['R',this.modelArray[1],this.textureArray[1],0],
-                ['s',this.modelArray[1],this.textureArray[1],0],
-                ['S',this.modelArray[1],this.textureArray[1],0],
-                ['t',this.modelArray[1],this.textureArray[1],0],
-                ['T',this.modelArray[1],this.textureArray[1],0],
-                ['u',this.modelArray[1],this.textureArray[1],0],
-                ['U',this.modelArray[1],this.textureArray[1],0],
-                ['v',this.modelArray[1],this.textureArray[1],0],
-                ['V',this.modelArray[1],this.textureArray[1],0],
+                ['i',this.modelArray[11],this.textureArray[12],0], // PC Packet Tracer
+                ['I',this.modelArray[11],this.textureArray[12],180], // PC Packet Tracer
+                ['j',this.modelArray[11],this.textureArray[12],90], // PC Packet Tracer
+                ['J',this.modelArray[11],this.textureArray[12],-90], // PC Packet Tracer
+                ['k',this.modelArray[11],this.textureArray[10],0], // PC Gaming
+                ['K',this.modelArray[11],this.textureArray[10],180], // PC Gaming
+                ['l',this.modelArray[11],this.textureArray[10],90], // PC Gaming
+                ['L',this.modelArray[11],this.textureArray[10],-90], // PC Gaming
+                ['m',this.modelArray[5],this.textureArray[1],0], // Skab
+                ['M',this.modelArray[5],this.textureArray[1],180], // Skab
+                ['n',this.modelArray[5],this.textureArray[1],90], // Skab
+                ['N',this.modelArray[5],this.textureArray[1],-90], // Skab
+                ['o',this.modelArray[2],this.textureArray[4],0], // Bogreol
+                ['O',this.modelArray[2],this.textureArray[4],180], // Bogreol
+                ['p',this.modelArray[2],this.textureArray[4],90], // Bogreol
+                ['P',this.modelArray[2],this.textureArray[4],-90], // Bogreol
+                ['q',this.modelArray[1],this.textureArray[2],0], // Saekkestol
+                ['Q',this.modelArray[1],this.textureArray[2],180], // Saekkestol
+                ['r',this.modelArray[1],this.textureArray[2],90], // Saekkestol
+                ['R',this.modelArray[1],this.textureArray[2],-90], // Saekkestol
+                ['s',this.modelArray[8],this.textureArray[16],90], // Koeleskab MODEL ROTERET FORKERT, justeret til normal: 0
+                ['S',this.modelArray[8],this.textureArray[16],-90], // Koeleskab MODEL ROTERET FORKERT, justeret til normal: 180
+                ['t',this.modelArray[8],this.textureArray[16],180], // Koeleskab // Koeleskab MODEL ROTERET FORKERT, justeret til normal: 90
+                ['T',this.modelArray[8],this.textureArray[16],0], // Koeleskab // Koeleskab MODEL ROTERET FORKERT, justeret til normal: -90
+                ['u',this.modelArray[10],this.textureArray[6],0], // koekenbord
+                ['U',this.modelArray[10],this.textureArray[6],180], // koekenbord
+                ['v',this.modelArray[10],this.textureArray[6],90], // koekenbord
+                ['V',this.modelArray[10],this.textureArray[6],-90], // koekenbord
                 ['x',this.modelArray[1],this.textureArray[1],0],
                 ['X',this.modelArray[1],this.textureArray[1],0],
                 ['y',this.modelArray[1],this.textureArray[1],0],

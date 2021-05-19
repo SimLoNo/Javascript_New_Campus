@@ -413,10 +413,10 @@ export default class Level{
 				case "j":
 					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_j',0,'VR-lab',' ')
 					break;
-				case "k": // Mangler modeller
+				case "k": // Mangler modeller, mødelokale
 					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_k',0,'Mødelokale 2',' ')
 					break;
-				case "n": // Mangler modeller
+				case "n": // Mangler modeller, mødelokale
 					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_n',0,'Mødelokale 1',' ')
 					break;
 				case "m":
@@ -440,56 +440,56 @@ export default class Level{
 				case "t": // Mangler modeller, skal vaere uden loft
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_t',0,'',' ')
 					break;
-				case "u": // Mangler indretning
+				case "u": // Mangler indretning, 2x WC-rum
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_u',0,'',' ')
 					break;
 				case "A":
 					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_A1',1,'',' ')
 					break;
-				case "B": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_B1',1,'',' ')
+				case "B":
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_B1',1,'',' ')
 					break;
-				case "C": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_C1',1,'',' ')
+				case "C":
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_C1',1,'',' ')
 					break;
-				case "D": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_D1',1,'',' ')
+				case "D":
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_D1',1,'',' ')
 					break;
-				case "E": // MANGLER OPDATERING TIL INDRETNING
+				case "E": // MANGLER OPDATERING TIL INDRETNING, WC
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_E1',1,'',' ')
 					break;
-				case "F": // MANGLER OPDATERING TIL INDRETNING
+				case "F": // MANGLER OPDATERING TIL INDRETNING, WC
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_F1',1,'',' ')
 					break;
-				case "G": // MANGLER OPDATERING TIL INDRETNING
+				case "G": // MANGLER OPDATERING TIL INDRETNING, Skal være uden gulv
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_G1',1,'',' ')
 					break;
-				case "H": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_H1',1,'',' ')
+				case "H":
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_H1',1,'',' ')
 					break;
-				case "I": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_I1',1,'',' ')
+				case "I":
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_I1',1,'',' ')
 					break;
-				case "J": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_J1',1,'',' ')
+				case "J":
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_J1',1,'',' ')
 					break;
-				case "K": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_K1',1,'',' ')
+				case "K":
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_K1',1,'',' ')
 					break;
-				case "M": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_M1',1,'',' ')
+				case "M":
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_M1',1,'',' ')
 					break;
 				case "N": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_N1',1,'',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_N1',1,'',' ')
 					break;
 				case "O": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_O1',1,'',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_O1',1,'',' ')
 					break;
-				case "P": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_P1',1,'',' ')
+				case "P":
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_P1',1,'',' ')
 					break;
-				case "Q": // MANGLER OPDATERING TIL INDRETNING
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_Q1',1,'',' ')
+				case "Q":
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_Q1',1,'',' ')
 					break;
 				case "R":
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_R1',1,'',' ')
