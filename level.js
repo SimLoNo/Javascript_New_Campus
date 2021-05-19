@@ -383,206 +383,126 @@ export default class Level{
 					scene.add( pointLightHelper );
 					*/
 					break;
-				case "a":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
+				case "a": // Forkert moeblering, skal laves om til printerrum
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_a',0,' ',' ')
 					break;
-				/*case "b":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_b(roomStartPosition, scene)
+				case "b":
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_b',0,'NetvaerkLab',' ')
 					break;
 				case "c":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_c(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_c',0,'RobotLab',' ')
 					break;
 				case "d":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_d(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_d',0,'Elev-kontor',' ')
 					break;
 				case "e":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_e(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_e',0,'Elev-kontor',' ')
 					break;
 				case "f":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_f(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_f',0,'Server',' ')
 					break;
 				case "g":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_g(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_g',0,'Helpdesk',' ')
 					break;
 				case "h":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_h(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_h',0,'Drift',' ')
 					break;
 				case "i":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_i(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_i',0,'Vaerksted',' ')
 					break;
 				case "j":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_j(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_j',0,'VR-lab',' ')
 					break;
-				case "k":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_k(roomStartPosition, scene)
+				case "k": // Mangler modeller
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_k',0,'Mødelokale 2',' ')
 					break;
-				case "n":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_n(roomStartPosition, scene)
+				case "n": // Mangler modeller
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_n',0,'Mødelokale 1',' ')
 					break;
 				case "m":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_m(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_m',0,'RobotLab',' ')
 					break;
 				case "o":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_o(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_o',0,'',' ')
 					break;
 				case "p":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_p(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_p',0,'',' ')
 					break;
 				case "q":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_q(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_q',0,'',' ')
 					break;
 				case "r":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_r(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_r',0,'',' ')
 					break;
-				case "s":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_s(roomStartPosition, scene)
+				case "s": // mangler indretning, skal vaere uden loft
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_s',0,'',' ')
 					break;
-				case "t":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_t(roomStartPosition, scene)
+				case "t": // Mangler modeller, skal vaere uden loft
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_t',0,'',' ')
 					break;
-				case "u":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_u(roomStartPosition, scene)
+				case "u": // Mangler indretning
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_u',0,'',' ')
 					break;
 				case "A":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_A(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_A1',1,'',' ')
 					break;
-				case "B":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_B(roomStartPosition, scene)
+				case "B": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_B1',1,'',' ')
 					break;
-				case "C":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_C(roomStartPosition, scene)
+				case "C": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_C1',1,'',' ')
 					break;
-				case "D":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_D(roomStartPosition, scene)
+				case "D": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_D1',1,'',' ')
 					break;
-				case "E":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_E(roomStartPosition, scene)
+				case "E": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_E1',1,'',' ')
 					break;
-				case "F":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_F(roomStartPosition, scene)
+				case "F": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_F1',1,'',' ')
 					break;
-				case "G":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_G(roomStartPosition, scene)
+				case "G": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_G1',1,'',' ')
 					break;
-				case "H":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_H(roomStartPosition, scene)
+				case "H": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_H1',1,'',' ')
 					break;
-				case "I":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_I(roomStartPosition, scene)
+				case "I": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_I1',1,'',' ')
 					break;
-				case "J":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_J(roomStartPosition, scene)
+				case "J": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_J1',1,'',' ')
 					break;
-				case "K":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_K(roomStartPosition, scene)
+				case "K": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_K1',1,'',' ')
 					break;
-				case "M":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_M(roomStartPosition, scene)
+				case "M": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_M1',1,'',' ')
 					break;
-				case "N":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_N(roomStartPosition, scene)
+				case "N": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_N1',1,'',' ')
 					break;
-				case "O":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_O(roomStartPosition, scene)
+				case "O": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_O1',1,'',' ')
 					break;
-				case "P":
-				////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_P(roomStartPosition, scene)
+				case "P": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_P1',1,'',' ')
 					break;
-				case "Q":
-					////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_Q(roomStartPosition, scene)
+				case "Q": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_Q1',1,'',' ')
 					break;
 				case "R":
-					////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_R(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_R1',1,'',' ')
 					break;
 				case "S":
-					////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_S(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_S1',1,'',' ')
 					break;
 				case "T":
-					////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_T(roomStartPosition, scene)
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_T1',1,'',' ')
 					break;
-				case "U":
-					////this.makeCeiling(false,scene,floor_number,1, row,column)
-					//var roomStartPosition = [column,row];
-					makeRoom.Room_U(roomStartPosition, scene)
-					break;*/
+				case "U": // MANGLER OPDATERING TIL INDRETNING
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_U1',1,'',' ')
+					break;
 				}
 			}
 		}

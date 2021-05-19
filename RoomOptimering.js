@@ -64,109 +64,213 @@ export default class Room{
         ]
 
         this.presetsArray = [
-            [
-                ['a',1,1,0],
-                ['A',1,1,0],
-                ['b',1,1,0],
-                ['B',1,1,0],
-                ['c',1,1,0],
-                ['C',1,1,0],
-                ['d',1,1,0],
-                ['D',1,1,0],
-                ['e',1,1,0],
-                ['E',1,1,0],
-                ['f',1,1,0],
-                ['F',1,1,0],
-                ['g',1,1,0],
-                ['G',1,1,0],
-                ['h',1,1,0],
-                ['H',1,1,0],
-                ['i',1,1,0],
-                ['I',1,1,0],
-                ['j',1,1,0],
-                ['J',1,1,0],
-                ['k',1,1,0],
-                ['K',1,1,0],
-                ['l',1,1,0],
-                ['L',1,1,0],
-                ['m',1,1,0],
-                ['M',1,1,0],
-                ['n',1,1,0],
-                ['N',1,1,0],
-                ['o',1,1,0],
-                ['O',1,1,0],
-                ['p',1,1,0],
-                ['P',1,1,0],
-                ['q',1,1,0],
-                ['Q',1,1,0],
-                ['r',1,1,0],
-                ['R',1,1,0],
-                ['s',1,1,0],
-                ['S',1,1,0],
-                ['t',1,1,0],
-                ['T',1,1,0],
-                ['u',1,1,0],
-                ['U',1,1,0],
-                ['v',1,1,0],
-                ['V',1,1,0],
-                ['x',1,1,0],
-                ['X',1,1,0],
-                ['y',1,1,0],
-                ['Y',1,1,0],
-                ['z',1,1,0],
-                ['Z',1,1,0],
+            [// Programmerings-kontor
+                ['a',this.modelArray[11],this.textureArray[0],0], //PC Programmering
+                ['A',this.modelArray[11],this.textureArray[0],180], //PC Programmering
+                ['b',this.modelArray[11],this.textureArray[0],90], //PC Programmering
+                ['B',this.modelArray[11],this.textureArray[0],-90], //PC Programmering
+                ['c',this.modelArray[11],this.textureArray[10],0], //PC gaming
+                ['C',this.modelArray[11],this.textureArray[10],180], //PC gaming
+                ['d',this.modelArray[11],this.textureArray[10],90], //PC gaming
+                ['D',this.modelArray[11],this.textureArray[10],-90], //PC gaming
+                ['e',this.modelArray[11],this.textureArray[13],0], //PC Unity
+                ['E',this.modelArray[11],this.textureArray[13],180], //PC Unity
+                ['f',this.modelArray[11],this.textureArray[13],90], //PC Unity
+                ['F',this.modelArray[11],this.textureArray[13],-90], //PC Unity
+                ['g',this.modelArray[3],this.textureArray[1],0], // Kontorstol
+                ['G',this.modelArray[3],this.textureArray[1],180], // Kontorstol
+                ['h',this.modelArray[3],this.textureArray[1],90], // Kontorstol
+                ['H',this.modelArray[3],this.textureArray[1],-90], // Kontorstol
+                ['i',this.modelArray[5],this.textureArray[1],0], // Skab
+                ['I',this.modelArray[5],this.textureArray[1],180], // Skab
+                ['j',this.modelArray[5],this.textureArray[1],90], // Skab
+                ['J',this.modelArray[5],this.textureArray[1],-90], // Skab
+                ['k',this.modelArray[2],this.textureArray[4],0], // Bogreol
+                ['K',this.modelArray[2],this.textureArray[4],180], // Bogreol
+                ['l',this.modelArray[2],this.textureArray[4],90], // Bogreol
+                ['L',this.modelArray[2],this.textureArray[4],-90], // Bogreol
+                ['m',this.modelArray[1],this.textureArray[1],0],
+                ['M',this.modelArray[1],this.textureArray[1],0],
+                ['n',this.modelArray[1],this.textureArray[1],0],
+                ['N',this.modelArray[1],this.textureArray[1],0],
+                ['o',this.modelArray[1],this.textureArray[1],0],
+                ['O',this.modelArray[1],this.textureArray[1],0],
+                ['p',this.modelArray[1],this.textureArray[1],0],
+                ['P',this.modelArray[1],this.textureArray[1],0],
+                ['q',this.modelArray[1],this.textureArray[1],0],
+                ['Q',this.modelArray[1],this.textureArray[1],0],
+                ['r',this.modelArray[1],this.textureArray[1],0],
+                ['R',this.modelArray[1],this.textureArray[1],0],
+                ['s',this.modelArray[1],this.textureArray[1],0],
+                ['S',this.modelArray[1],this.textureArray[1],0],
+                ['t',this.modelArray[1],this.textureArray[1],0],
+                ['T',this.modelArray[1],this.textureArray[1],0],
+                ['u',this.modelArray[1],this.textureArray[1],0],
+                ['U',this.modelArray[1],this.textureArray[1],0],
+                ['v',this.modelArray[1],this.textureArray[1],0],
+                ['V',this.modelArray[1],this.textureArray[1],0],
+                ['x',this.modelArray[1],this.textureArray[1],0],
+                ['X',this.modelArray[1],this.textureArray[1],0],
+                ['y',this.modelArray[1],this.textureArray[1],0],
+                ['Y',this.modelArray[1],this.textureArray[1],0],
+                ['z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0],
+            ],
+            [ //Netvaerks/robot/vaerksted/VR-lab, Netvaerkskontor, Lager og Logistik
+                ['a',this.modelArray[4],this.textureArray[7],0], // Cisco rack
+                ['A',this.modelArray[4],this.textureArray[7],180], // Cisco rack
+                ['b',this.modelArray[4],this.textureArray[7],90], // Cisco rack
+                ['B',this.modelArray[4],this.textureArray[7],-90], // Cisco rack
+                ['c',this.modelArray[7],this.textureArray[15],0], // Bord M/switch
+                ['C',this.modelArray[7],this.textureArray[15],180], // Bord M/switch
+                ['d',this.modelArray[7],this.textureArray[15],90], // Bord M/switch
+                ['D',this.modelArray[7],this.textureArray[15],-90], // Bord M/switch
+                ['e',this.modelArray[3],this.textureArray[1],0], // Kontorstol
+                ['E',this.modelArray[3],this.textureArray[1],180], // Kontorstol
+                ['f',this.modelArray[3],this.textureArray[1],90], // Kontorstol
+                ['F',this.modelArray[3],this.textureArray[1],-90], // Kontorstol
+                ['g',this.modelArray[11],this.textureArray[12],0], // PC Packet Tracer
+                ['G',this.modelArray[11],this.textureArray[12],180], // PC Packet Tracer
+                ['h',this.modelArray[11],this.textureArray[12],90], // PC Packet Tracer
+                ['H',this.modelArray[11],this.textureArray[12],-90], // PC Packet Tracer
+                ['i',this.modelArray[11],this.textureArray[0],0], // PC Programering
+                ['I',this.modelArray[11],this.textureArray[0],180], // PC Programering
+                ['j',this.modelArray[11],this.textureArray[0],90], // PC Programering
+                ['J',this.modelArray[11],this.textureArray[0],-90], // PC Programering
+                ['k',this.modelArray[0],this.textureArray[3],0], // Boston Dynamics Spot
+                ['K',this.modelArray[0],this.textureArray[3],180], // Boston Dynamics Spot
+                ['l',this.modelArray[0],this.textureArray[3],90], // Boston Dynamics Spot
+                ['L',this.modelArray[0],this.textureArray[3],-90], // Boston Dynamics Spot
+                ['m',this.modelArray[14],this.textureArray[18],0], // Papkasser
+                ['M',this.modelArray[14],this.textureArray[18],180], // Papkasser
+                ['n',this.modelArray[14],this.textureArray[18],90], // Papkasser
+                ['N',this.modelArray[14],this.textureArray[18],-90], // Papkasser
+                ['o',this.modelArray[11],this.textureArray[13],0], // PC Unity
+                ['O',this.modelArray[11],this.textureArray[13],180], // PC Unity
+                ['p',this.modelArray[11],this.textureArray[13],90], // PC Unity
+                ['P',this.modelArray[11],this.textureArray[13],-90], // PC Unity
+                ['q',this.modelArray[11],this.textureArray[14],0], // PC VR
+                ['Q',this.modelArray[11],this.textureArray[14],180], // PC VR
+                ['r',this.modelArray[11],this.textureArray[14],90], // PC VR
+                ['R',this.modelArray[11],this.textureArray[14],-90], // PC VR
+                ['s',this.modelArray[6],this.textureArray[0],0], // Workdesk PC
+                ['S',this.modelArray[6],this.textureArray[0],180], // Workdesk PC
+                ['t',this.modelArray[6],this.textureArray[0],90], // Workdesk PC
+                ['T',this.modelArray[6],this.textureArray[0],-90], // Workdesk PC
+                ['u',this.modelArray[2],this.textureArray[4],0],  // Bogreol
+                ['U',this.modelArray[2],this.textureArray[4],180], // Bogreol
+                ['v',this.modelArray[2],this.textureArray[4],90], // Bogreol
+                ['V',this.modelArray[2],this.textureArray[4],-90], // Bogreol
+                ['x',this.modelArray[5],this.textureArray[1],0], // Skab
+                ['X',this.modelArray[5],this.textureArray[1],180], // Skab
+                ['y',this.modelArray[5],this.textureArray[1],90], // Skab
+                ['Y',this.modelArray[5],this.textureArray[1],-90], // Skab
+                ['z',this.modelArray[13],this.textureArray[17],180], // VR stander
+                ['Z',this.modelArray[1],this.textureArray[1],0],
+            ],
+            [ // Personale-rum/kontor
+                ['a',this.modelArray[15],this.textureArray[8],0], // Sofa
+                ['A',this.modelArray[15],this.textureArray[8],180], // Sofa
+                ['b',this.modelArray[15],this.textureArray[8],90], // Sofa
+                ['B',this.modelArray[15],this.textureArray[8],-90], // Sofa
+                ['c',this.modelArray[1],this.textureArray[1],0], // Sofabord MANGLER MODEL
+                ['C',this.modelArray[1],this.textureArray[1],180], // Sofabord MANGLER MODEL
+                ['d',this.modelArray[1],this.textureArray[1],90], // Sofabord MANGLER MODEL
+                ['D',this.modelArray[1],this.textureArray[1],-90], // Sofabord MANGLER MODEL
+                ['e',this.modelArray[11],this.textureArray[0],0], // PC Programmering
+                ['E',this.modelArray[11],this.textureArray[0],180], // PC Programmering
+                ['f',this.modelArray[11],this.textureArray[0],90], // PC Programmering
+                ['F',this.modelArray[11],this.textureArray[0],-90], // PC Programmering
+                ['g',this.modelArray[3],this.textureArray[1],0], // Kontorstol
+                ['G',this.modelArray[3],this.textureArray[1],180], // Kontorstol
+                ['h',this.modelArray[3],this.textureArray[1],90], // Kontorstol
+                ['H',this.modelArray[3],this.textureArray[1],-90], // Kontorstol
+                ['i',this.modelArray[1],this.textureArray[1],0],
+                ['I',this.modelArray[1],this.textureArray[1],0],
+                ['j',this.modelArray[1],this.textureArray[1],0],
+                ['J',this.modelArray[1],this.textureArray[1],0],
+                ['k',this.modelArray[1],this.textureArray[1],0],
+                ['K',this.modelArray[1],this.textureArray[1],0],
+                ['l',this.modelArray[1],this.textureArray[1],0],
+                ['L',this.modelArray[1],this.textureArray[1],0],
+                ['m',this.modelArray[1],this.textureArray[1],0],
+                ['M',this.modelArray[1],this.textureArray[1],0],
+                ['n',this.modelArray[1],this.textureArray[1],0],
+                ['N',this.modelArray[1],this.textureArray[1],0],
+                ['o',this.modelArray[1],this.textureArray[1],0],
+                ['O',this.modelArray[1],this.textureArray[1],0],
+                ['p',this.modelArray[1],this.textureArray[1],0],
+                ['P',this.modelArray[1],this.textureArray[1],0],
+                ['q',this.modelArray[1],this.textureArray[1],0],
+                ['Q',this.modelArray[1],this.textureArray[1],0],
+                ['r',this.modelArray[1],this.textureArray[1],0],
+                ['R',this.modelArray[1],this.textureArray[1],0],
+                ['s',this.modelArray[1],this.textureArray[1],0],
+                ['S',this.modelArray[1],this.textureArray[1],0],
+                ['t',this.modelArray[1],this.textureArray[1],0],
+                ['T',this.modelArray[1],this.textureArray[1],0],
+                ['u',this.modelArray[1],this.textureArray[1],0],
+                ['U',this.modelArray[1],this.textureArray[1],0],
+                ['v',this.modelArray[1],this.textureArray[1],0],
+                ['V',this.modelArray[1],this.textureArray[1],0],
+                ['x',this.modelArray[1],this.textureArray[1],0],
+                ['X',this.modelArray[1],this.textureArray[1],0],
+                ['y',this.modelArray[1],this.textureArray[1],0],
+                ['Y',this.modelArray[1],this.textureArray[1],0],
+                ['z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0],
             ],
             [
-                ['a',1,1,0],
-                ['A',1,1,0],
-                ['b',1,1,0],
-                ['B',1,1,0],
-                ['c',1,1,0],
-                ['C',1,1,0],
-                ['d',1,1,0],
-                ['D',1,1,0],
-                ['e',1,1,0],
-                ['E',1,1,0],
-                ['f',1,1,0],
-                ['F',1,1,0],
-                ['g',1,1,0],
-                ['G',1,1,0],
-                ['h',1,1,0],
-                ['H',1,1,0],
-                ['i',1,1,0],
-                ['I',1,1,0],
-                ['j',1,1,0],
-                ['J',1,1,0],
-                ['k',1,1,0],
-                ['K',1,1,0],
-                ['l',1,1,0],
-                ['L',1,1,0],
-                ['m',1,1,0],
-                ['M',1,1,0],
-                ['n',1,1,0],
-                ['N',1,1,0],
-                ['o',1,1,0],
-                ['O',1,1,0],
-                ['p',1,1,0],
-                ['P',1,1,0],
-                ['q',1,1,0],
-                ['Q',1,1,0],
-                ['r',1,1,0],
-                ['R',1,1,0],
-                ['s',1,1,0],
-                ['S',1,1,0],
-                ['t',1,1,0],
-                ['T',1,1,0],
-                ['u',1,1,0],
-                ['U',1,1,0],
-                ['v',1,1,0],
-                ['V',1,1,0],
-                ['x',1,1,0],
-                ['X',1,1,0],
-                ['y',1,1,0],
-                ['Y',1,1,0],
-                ['z',1,1,0],
-                ['Z',1,1,0],
+                ['a',this.modelArray[1],this.textureArray[1],0],
+                ['A',this.modelArray[1],this.textureArray[1],0],
+                ['b',this.modelArray[1],this.textureArray[1],0],
+                ['B',this.modelArray[1],this.textureArray[1],0],
+                ['c',this.modelArray[1],this.textureArray[1],0],
+                ['C',this.modelArray[1],this.textureArray[1],0],
+                ['d',this.modelArray[1],this.textureArray[1],0],
+                ['D',this.modelArray[1],this.textureArray[1],0],
+                ['e',this.modelArray[1],this.textureArray[1],0],
+                ['E',this.modelArray[1],this.textureArray[1],0],
+                ['f',this.modelArray[1],this.textureArray[1],0],
+                ['F',this.modelArray[1],this.textureArray[1],0],
+                ['g',this.modelArray[1],this.textureArray[1],0],
+                ['G',this.modelArray[1],this.textureArray[1],0],
+                ['h',this.modelArray[1],this.textureArray[1],0],
+                ['H',this.modelArray[1],this.textureArray[1],0],
+                ['i',this.modelArray[1],this.textureArray[1],0],
+                ['I',this.modelArray[1],this.textureArray[1],0],
+                ['j',this.modelArray[1],this.textureArray[1],0],
+                ['J',this.modelArray[1],this.textureArray[1],0],
+                ['k',this.modelArray[1],this.textureArray[1],0],
+                ['K',this.modelArray[1],this.textureArray[1],0],
+                ['l',this.modelArray[1],this.textureArray[1],0],
+                ['L',this.modelArray[1],this.textureArray[1],0],
+                ['m',this.modelArray[1],this.textureArray[1],0],
+                ['M',this.modelArray[1],this.textureArray[1],0],
+                ['n',this.modelArray[1],this.textureArray[1],0],
+                ['N',this.modelArray[1],this.textureArray[1],0],
+                ['o',this.modelArray[1],this.textureArray[1],0],
+                ['O',this.modelArray[1],this.textureArray[1],0],
+                ['p',this.modelArray[1],this.textureArray[1],0],
+                ['P',this.modelArray[1],this.textureArray[1],0],
+                ['q',this.modelArray[1],this.textureArray[1],0],
+                ['Q',this.modelArray[1],this.textureArray[1],0],
+                ['r',this.modelArray[1],this.textureArray[1],0],
+                ['R',this.modelArray[1],this.textureArray[1],0],
+                ['s',this.modelArray[1],this.textureArray[1],0],
+                ['S',this.modelArray[1],this.textureArray[1],0],
+                ['t',this.modelArray[1],this.textureArray[1],0],
+                ['T',this.modelArray[1],this.textureArray[1],0],
+                ['u',this.modelArray[1],this.textureArray[1],0],
+                ['U',this.modelArray[1],this.textureArray[1],0],
+                ['v',this.modelArray[1],this.textureArray[1],0],
+                ['V',this.modelArray[1],this.textureArray[1],0],
+                ['x',this.modelArray[1],this.textureArray[1],0],
+                ['X',this.modelArray[1],this.textureArray[1],0],
+                ['y',this.modelArray[1],this.textureArray[1],0],
+                ['Y',this.modelArray[1],this.textureArray[1],0],
+                ['z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0],
             ]
         ]
 
@@ -249,16 +353,16 @@ export default class Room{
 
     
     // Metode der bliver kaldt, til at indsætte modeller i banen.
-    make_Model(model,scene,tempX,tempY,tempZ){
+    make_Model(model,modelTexture,direction,scene,tempX,tempY,tempZ){
         let modelLoader = new THREE.GLTFLoader();
         let loader = new THREE.TextureLoader();
         
-        console.log('TEXTURE: '+this.modelArray[model][2])
-        console.log('MODEL: '+this.modelArray[model][1])
-        var texture = loader.load(this.textureArray[model][2])
+        console.log('TEXTURE: '+modelTexture)
+        console.log('MODEL: '+model)
+        var texture = loader.load(modelTexture)
         texture.flipY = false;
         
-        modelLoader.load(this.modelArray[model][1], function(gltf){
+        modelLoader.load(model, function(gltf){
             var mesh;
             mesh = gltf.scene;
             mesh.scale.set(1,1,1);
@@ -273,7 +377,7 @@ export default class Room{
             mesh.position.x = tempX;
             mesh.position.y = tempY;
             mesh.position.z = tempZ;
-            mesh.rotation.y = model[3] * Math.PI / 180
+            mesh.rotation.y = direction * Math.PI / 180
 
             })
     }
@@ -292,71 +396,18 @@ export default class Room{
                 switch(room[x][y]){
                     case ' ':
                         break;
-                    case '1':
+                    case '.':
+                        break;
+                    default:
                     
                         for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
                             var element = this.presetsArray[roomPreset][index];
                             
-                            if(this.presetsArray[roomPreset][index][0] == 'A'){
+                            if(element[0] == room[x][y]){
                                 console.log('!!!!!!!!!!!!!! '+element[0])
                                 console.log('!!!!!!!!!!!!!! '+element[1])
                                 console.log('!!!!!!!!!!!!!! '+element[2])
-                                this.make_Model(index, scene, tempX, tempY, tempZ);
-                                break;
-                                
-                            }
-                            
-                        }
-                        break;
-                    case '2':
-                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset[index]];
-                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
-                                this.make_Model(element, scene, tempX, tempY, tempZ);
-                                break;
-                                
-                            }
-                            
-                        }
-                        break;
-                    case '3':
-                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset[index]];
-                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
-                                this.make_Model(element, scene, tempX, tempY, tempZ);
-                                break;
-                                
-                            }
-                            
-                        }
-                        break;
-                    case '4':
-                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset[index]];
-                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
-                                this.make_Model(element, scene, tempX, tempY, tempZ);
-                                break;
-                                
-                            }
-                            
-                        }
-                        break;
-                    case '5':
-                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset[index]];
-                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
-                                this.make_Model(element, scene, tempX, tempY, tempZ);
-                                break;
-                                
-                            }
-                            
-                        }
-                        break;
-                    case '6':
-                        for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset[index]];
-                            if(this.presetsArray[roomPreset[index[0]]] == 'a'){
-                                this.make_Model(element, scene, tempX, tempY, tempZ);
+                                this.make_Model(element[1],element[2],element[3], scene, tempX, tempY, tempZ);
                                 break;
                                 
                             }
