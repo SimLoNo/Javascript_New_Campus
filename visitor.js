@@ -2,13 +2,15 @@ export default class Visitor{
 	constructor(scene,level){
 		
 		this.body = new THREE.Object3D();
-		this.body.position.set(7,0.25,3);
+		
+		this.body.position.x = 7;
+		this.body.position.y = 0.25;
+		this.body.position.z = 3;
 		this.body.rotation.y = -Math.PI/2;
 		
 		// skift etage (til test)
 		this.groundFloor = true;
-		// gå gennem vægge hvis false
-		this.clippingMode = true;
+	
 		this.moveSpeed = 0.15;
 		this.rotationSpeed = 3 * (Math.PI/180);	//degrees per frame
 
@@ -34,11 +36,6 @@ export default class Visitor{
 			this.visitorModel.position.y = 0.25;
 		}
 	}
-	clipping(){
-		// skift
-		this.clippingMode = !this.clippingMode;
-		console.log("clipping er " + this.clippingMode);
-	}
 	update(level, camera_FP){
 
 		this.body.rotation.y += this.turnDirection * this.rotationSpeed;
@@ -48,16 +45,14 @@ export default class Visitor{
 		let newX = this.body.position.x + Math.sin(this.body.rotation.y) * moveStep;
 		let newZ = this.body.position.z + Math.cos(this.body.rotation.y) * moveStep;
 
-		// tjek for vægge	
-		if (this.clippingMode == false){	
-			// intet vægtjek
-			this.body.position.z = newZ;
-			this.body.position.x = newX;
-		}else if (this.clippingMode == true && level.hasWallAt(this.groundFloor,newX,newZ) != 1 ){	
-			this.body.position.z = newZ;
-			this.body.position.x = newX;
-		}
+		// Det ville give mening hvis kameraet er lidt bagved spilleren, afhængigt af spillerens rotation, så man ikke kommer til at kunne se gennem vægge.
+
+		// hitdetection	
+		if (level.hasWallAt(this.groundFloor,newX,newZ) != 1 ){	
 			
+		}
+		this.body.position.z = newZ;
+		this.body.position.x = newX;
 		this.visitorModel.position.x = this.body.position.x;
 		this.visitorModel.position.z = this.body.position.z;
 
