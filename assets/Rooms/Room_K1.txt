@@ -1,9 +1,9 @@
 .................
-.a.a.....a.a.a.a.
-.B.B.....B.B.B.B.
+.e.e.....e.e.e.e.
+.G.G.....G.G.G.G.
 .................
-.b.b.....b.b.b.b.
-.A.A.....A.A.A.A.
+.g.g.....g.g.g.g.
+.E.E.....E.E.E.E.
 .................
-aaa.aaaa.aaaa.aaa
-BBB.BBBB.BBBB.BBB
+eee.eeee.eeee.eee
+GGG.GGGG.GGGG.GGG

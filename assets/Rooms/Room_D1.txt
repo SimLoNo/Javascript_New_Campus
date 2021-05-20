@@ -1,9 +1,9 @@
-bb..bb..bb
-AA..AA..AA
+gg..gg..gg
+EE..EE..EE
 ..........
-bb......bb
-AA......AA
+gg......gg
+EE......EE
 ..........
 ..........
-aa......aa
-BB......BB
+ee......ee
+GG......GG

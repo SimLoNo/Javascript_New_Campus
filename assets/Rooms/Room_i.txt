@@ -1,9 +1,9 @@
-aaabbb     
+uuuxxx     
            
-c c c    c 
-e e d    d 
+e e e    e 
+C C S    S 
            
-c c c    c 
-d e e    d 
+e e e    e 
+S C C    S 
            
-BBAAABAABBB
+XXUUUXUUXXX
