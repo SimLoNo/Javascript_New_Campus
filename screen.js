@@ -30,5 +30,13 @@ export default class Screen{
 			this.camera_Top.position.y = 6;
 		}
 	}
+	shiftViewMode(){
+		if (this.viewMode == 1){
+			this.viewMode = 0;
+		} else {
+			this.viewMode = 1;
+		}
+		console.log("Viewmode er " + this.viewMode);
+	}
 }
 
