@@ -152,7 +152,7 @@ export default class Level{
 				let wall_height, wall_width, floor_height,floor_width;	
 				
 				let tempX = (column*this.TILESIZE + 0.5*this.TILESIZE);
-				let tempY = (-2.5*this.TILESIZE);
+				let tempY = (-2.5*this.TILESIZE)+ (floor_number*3.5);
 				let tempZ = (row*this.TILESIZE + 0.5*this.TILESIZE);
 				var roomStartPosition = [column,row];
 		
@@ -366,10 +366,10 @@ export default class Level{
 					scene.add(mesh_floor);
 					break;
 				case "3":
-					//makeRoom.make_Model('./assets/Models/Stair1V1.gltf',18, scene,tempX,tempY,tempZ,0)
+					makeRoom.make_Model('./assets/Models/DoorV1.gltf','./assets/Textures/Cardboard.png',0, scene,tempX,tempY,tempZ)
 					break;
 				case "4":
-					//makeRoom.make_Model('./assets/Models/Stair2V1.gltf',18, scene,tempX,tempY,tempZ,-90)
+					makeRoom.make_Model('./assets/Models/DoorV1.gltf','./assets/Textures/Cardboard.png',180, scene,tempX,tempY,tempZ)
 					break;
 				case "L":
 					var light3 = new THREE.PointLight(0xFFFFDD,1,8,2);
@@ -414,10 +414,10 @@ export default class Level{
 					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_j',0,'VR-lab',' ')
 					break;
 				case "k": // Mangler modeller, mødelokale
-					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_k',0,'Mødelokale 2',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_k',0,'Mødelokale 2',' ')
 					break;
 				case "n": // Mangler modeller, mødelokale
-					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_n',0,'Mødelokale 1',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_n',0,'Mødelokale 1',' ')
 					break;
 				case "m":
 					makeRoom.Make_Room(roomStartPosition, scene,1,'Room_m',0,'RobotLab',' ')
@@ -426,7 +426,7 @@ export default class Level{
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_o',0,'',' ')
 					break;
 				case "p":
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_p',0,'',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,3,'Room_p',0,'',' ')
 					break;
 				case "q":
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_q',0,'',' ')
@@ -434,14 +434,14 @@ export default class Level{
 				case "r":
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_r',0,'',' ')
 					break;
-				case "s": // mangler indretning, skal vaere uden loft
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_s',0,'',' ')
+				case "s": // mangler indretning
+					makeRoom.Make_Room(roomStartPosition, scene,3,'Room_s',0,'',' ',true,false)
 					break;
-				case "t": // Mangler modeller, skal vaere uden loft
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_t',0,'',' ')
+				case "t": // Mangler modeller
+					makeRoom.Make_Room(roomStartPosition, scene,3,'Room_t',0,'',' ',true,false)
 					break;
 				case "u": // Mangler indretning, 2x WC-rum
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_u',0,'',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,3,'Room_u',0,'',' ')
 					break;
 				case "A":
 					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_A1',1,'',' ')
@@ -462,7 +462,7 @@ export default class Level{
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_F1',1,'',' ')
 					break;
 				case "G": // MANGLER OPDATERING TIL INDRETNING, Skal være uden gulv
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_G1',1,'',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_G1',1,'',' ',false)
 					break;
 				case "H":
 					makeRoom.Make_Room(roomStartPosition, scene,2,'Room_H1',1,'',' ')
@@ -498,7 +498,7 @@ export default class Level{
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_S1',1,'',' ')
 					break;
 				case "T":
-					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_T1',1,'',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_T1',1,'',' ',false)
 					break;
 				case "U": // MANGLER OPDATERING TIL INDRETNING
 					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_U1',1,'',' ')

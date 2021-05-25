@@ -1,5 +1,7 @@
+import {BufferGeometryUtils} from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/utils/BufferGeometryUtils.js';
 export default class Room{
 	constructor(tile){
+        
 		this.TILESIZE = tile;
 
         // Array til at gemme texture, til at bruge på modeller.
@@ -51,16 +53,21 @@ export default class Room{
             './assets/Models/Cardboxes.gltf',
             './assets/Models/Couch2V1Blank.gltf',
             './assets/Models/CanteenTableV1.gltf',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/'
+            './assets/Models/Table1V1.gltf',
+            './assets/Models/Table1WideV1.gltf',
+            './assets/Models/Table2V1.gltf',
+            './assets/Models/Table2WideV1.gltf',
+            './assets/Models/DoorV1.gltf',
+            './assets/Models/lokum.gltf',
+            './assets/Models/Stair1V1.gltf',
+            './assets/Models/Stair2V1.gltf',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/'
         ]
 
         this.presetsArray = [
@@ -114,7 +121,7 @@ export default class Room{
                 ['y',this.modelArray[1],this.textureArray[1],0],
                 ['Y',this.modelArray[1],this.textureArray[1],0],
                 ['z',this.modelArray[1],this.textureArray[1],0],
-                ['Z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0]
             ],
             [ //Netvaerks/robot/vaerksted/VR-lab, Netvaerkskontor, Lager og Logistik id: 1
                 ['a',this.modelArray[4],this.textureArray[7],0], // Cisco rack
@@ -166,7 +173,7 @@ export default class Room{
                 ['y',this.modelArray[5],this.textureArray[1],90], // Skab
                 ['Y',this.modelArray[5],this.textureArray[1],-90], // Skab
                 ['z',this.modelArray[13],this.textureArray[17],180], // VR stander
-                ['Z',this.modelArray[12],this.textureArray[1],90], // Printer
+                ['Z',this.modelArray[12],this.textureArray[1],90] // Printer
             ],
             [ // Personale-rum/kontor, Koekken/kantine id: 2
                 ['a',this.modelArray[15],this.textureArray[8],0], // Sofa
@@ -213,15 +220,67 @@ export default class Room{
                 ['U',this.modelArray[10],this.textureArray[6],180], // koekenbord
                 ['v',this.modelArray[10],this.textureArray[6],90], // koekenbord
                 ['V',this.modelArray[10],this.textureArray[6],-90], // koekenbord
+                ['x',this.modelArray[17],this.textureArray[15],0], // Moedebord
+                ['X',this.modelArray[17],this.textureArray[15],90], // Moedebord
+                ['y',this.modelArray[18],this.textureArray[15],0], // Moedebord bred
+                ['Y',this.modelArray[18],this.textureArray[15],90], // Moedebord bred
+                ['z',this.modelArray[19],this.textureArray[15],90], // Hoejt modebord
+                ['Z',this.modelArray[20],this.textureArray[15],90] // Hoejt modebord bred
+            ],
+            [ // Gange, trapper og lign. lavindrettede rum id: 3
+                ['a',this.modelArray[21],this.textureArray[1],0], // Doer
+                ['A',this.modelArray[21],this.textureArray[1],180], // Doer
+                ['b',this.modelArray[21],this.textureArray[1],90], // Doer
+                ['B',this.modelArray[21],this.textureArray[1],-90], // Doer
+                ['c',this.modelArray[22],this.textureArray[1],0], // Lokum
+                ['C',this.modelArray[22],this.textureArray[1],180], // Lokum
+                ['d',this.modelArray[22],this.textureArray[1],90], // Lokum
+                ['D',this.modelArray[22],this.textureArray[1],-90], // Lokum
+                ['e',this.modelArray[23],this.textureArray[18],0], // Trappe 1
+                ['E',this.modelArray[24],this.textureArray[18],-90], // Trappe 2
+                ['f',this.modelArray[9],this.textureArray[11],0], // Info stander
+                ['F',this.modelArray[9],this.textureArray[11],180], // Info stander
+                ['g',this.modelArray[9],this.textureArray[11],90], // Info stander
+                ['G',this.modelArray[9],this.textureArray[11],-90], // Info stander
+                ['h',this.modelArray[15],this.textureArray[8],0], // Sofa
+                ['H',this.modelArray[15],this.textureArray[8],180], // Sofa
+                ['i',this.modelArray[15],this.textureArray[8],90], // Sofa
+                ['I',this.modelArray[15],this.textureArray[8],-90], // Sofa
+                ['j',this.modelArray[1],this.textureArray[1],0],
+                ['J',this.modelArray[1],this.textureArray[1],0],
+                ['k',this.modelArray[1],this.textureArray[1],0],
+                ['K',this.modelArray[1],this.textureArray[1],0],
+                ['l',this.modelArray[1],this.textureArray[1],0],
+                ['L',this.modelArray[1],this.textureArray[1],0],
+                ['m',this.modelArray[1],this.textureArray[1],0],
+                ['M',this.modelArray[1],this.textureArray[1],0],
+                ['n',this.modelArray[1],this.textureArray[1],0],
+                ['N',this.modelArray[1],this.textureArray[1],0],
+                ['o',this.modelArray[1],this.textureArray[1],0],
+                ['O',this.modelArray[1],this.textureArray[1],0],
+                ['p',this.modelArray[1],this.textureArray[1],0],
+                ['P',this.modelArray[1],this.textureArray[1],0],
+                ['q',this.modelArray[1],this.textureArray[1],0],
+                ['Q',this.modelArray[1],this.textureArray[1],0],
+                ['r',this.modelArray[1],this.textureArray[1],0],
+                ['R',this.modelArray[1],this.textureArray[1],0],
+                ['s',this.modelArray[1],this.textureArray[1],0],
+                ['S',this.modelArray[1],this.textureArray[1],0],
+                ['t',this.modelArray[1],this.textureArray[1],0],
+                ['T',this.modelArray[1],this.textureArray[1],0],
+                ['u',this.modelArray[1],this.textureArray[1],0],
+                ['U',this.modelArray[1],this.textureArray[1],0],
+                ['v',this.modelArray[1],this.textureArray[1],0],
+                ['V',this.modelArray[1],this.textureArray[1],0],
                 ['x',this.modelArray[1],this.textureArray[1],0],
                 ['X',this.modelArray[1],this.textureArray[1],0],
                 ['y',this.modelArray[1],this.textureArray[1],0],
                 ['Y',this.modelArray[1],this.textureArray[1],0],
                 ['z',this.modelArray[1],this.textureArray[1],0],
-                ['Z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0]
             ],
             [
-                ['a',this.modelArray[1],this.textureArray[1],0],
+                'a',this.modelArray[1],this.textureArray[1],0],
                 ['A',this.modelArray[1],this.textureArray[1],0],
                 ['b',this.modelArray[1],this.textureArray[1],0],
                 ['B',this.modelArray[1],this.textureArray[1],0],
@@ -270,8 +329,7 @@ export default class Room{
                 ['y',this.modelArray[1],this.textureArray[1],0],
                 ['Y',this.modelArray[1],this.textureArray[1],0],
                 ['z',this.modelArray[1],this.textureArray[1],0],
-                ['Z',this.modelArray[1],this.textureArray[1],0],
-            ]
+                ['Z',this.modelArray[1],this.textureArray[1],0]
         ]
 
         
@@ -354,60 +412,116 @@ export default class Room{
     
     // Metode der bliver kaldt, til at indsætte modeller i banen.
     make_Model(model,modelTexture,direction,scene,tempX,tempY,tempZ){
-        let modelLoader = new THREE.GLTFLoader();
-        let loader = new THREE.TextureLoader();
+        let modelLoader = new THREE.GLTFLoader(); // Bliver brugt til at hente 3D modellen.
+        let loader = new THREE.TextureLoader(); // Bliver brugt til at hente 2D texturen.
+
+        
         
         console.log('TEXTURE: '+modelTexture)
         console.log('MODEL: '+model)
-        var texture = loader.load(modelTexture)
-        texture.flipY = false;
+        var texture = loader.load(modelTexture) // henter 2D texturen til en variable.
+        texture.flipY = false; // saetter til false, for at 2D texturen bliver sat korrekt paa 3D modellen.
         
         modelLoader.load(model, function(gltf){
             var mesh;
             mesh = gltf.scene;
             mesh.scale.set(1,1,1);
             // Tildeler textur til modellen.
-            mesh.traverse ( ( o ) => {
+            /*mesh.traverse ( ( o ) => {
                 if ( o.isMesh ) {
                   o.material.map = texture
                 }
                 
-            });
-            scene.add(mesh);
+            });*/
+            
+            
+            /*scene.add(mesh);
             mesh.position.x = tempX;
             mesh.position.y = tempY;
-            mesh.position.z = tempZ;
+            mesh.position.z = tempZ;*/
             mesh.rotation.y = direction * Math.PI / 180
+            var geometry = new THREE.BufferGeometry().fromGeometry(gltf.scene);
+            geometry.translate(tempX,tempY,tempZ);
+            console.log("geometry: "+geometry);
+            return geometry;
 
             })
     }
 
-    Make_Room(startPosition,scene,roomPreset,roomId,floor,text1 = 'NA',text2 = 'NA'){
+    Make_Room(startPosition,scene,roomPreset,roomId,floor,text1 = 'NA',text2 = 'NA',makeFloor = true, makeCeiling = true){
         console.log(roomId+" Running.")
         var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,floor,room.length,room[0].length,startPosition[1],startPosition[0])
+
+        
+        let models = [];
+        let modelGeometry = new THREE.BufferGeometry().fromGeometry(new THREE.BoxGeometry(1,1,1));
+        
+        this.makeCeiling(scene,floor,room.length,room[0].length,startPosition[1],startPosition[0],makeFloor,makeCeiling)
         for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
                 // gemmer placeringsposition i variabler, til at give modellerne deres position
                 let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE)+ (floor*3.5);;
+                let tempY = (-2.5*this.TILESIZE)+ (floor*3.5);
                 let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+
+                console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                    // Switch casen undersoeger positionen i lokalets tekstdokument, for at indrette lokalet,
                 switch(room[x][y]){
-                    case ' ':
+                    case ' ': // i tilfaelde af at der ikke skal vaere noget paa den position
                         break;
-                    case '.':
+                    case '.': // i tilfaelde af at der ikke skal vaere noget paa den position, i nogle dokumenter, bliver dette brugt til at have overblik over raekker og kolonner.
                         break;
-                    default:
+                    // hvis der skal indsaettes et moebel paa positionen, bliver koden koert i default, dette er for at optimere vedligeholdelse, til kun at skulle aendre 1 case i tilfaelde af aendringer
+                    default: 
                     
+                        // for-loop, til at finde det korrekte moebel i det angivede preset, der svaere til tegnet i lokalets tekstdokument.
                         for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset][index];
+
+                            var element = this.presetsArray[roomPreset][index]; // Gemmer positionen i det angivende preset array, til variablen "element"
                             
-                            if(element[0] == room[x][y]){
-                                console.log('!!!!!!!!!!!!!! '+element[0])
-                                console.log('!!!!!!!!!!!!!! '+element[1])
-                                console.log('!!!!!!!!!!!!!! '+element[2])
-                                this.make_Model(element[1],element[2],element[3], scene, tempX, tempY, tempZ);
+                            if(element[0] == room[x][y]){ // if-saetningen undersoeger om tegnet angivet til positionen i det angivende preset array, er det samme som positionen i lokalets tekstdokument.
+                                // skriver til konsol, for at kunne debugge hvis der er noget der ikke virker.
+                                console.log('Room: '+roomId+' Letter: '+element[0])
+                                console.log('Room: '+roomId+' Model: '+element[1])
+                                console.log('Room: '+roomId+' Texture: '+element[2])
+                                //meshObject = this.make_Model(element[1],element[2],element[3], scene, tempX, tempY, tempZ); // Kalder metoden der indsaeter modellen i banen.
+                                //models.push(this.make_Model(element[1],element[2],element[3], scene, tempX, tempY, tempZ));
+
+                                // TEST SECTION BEGIN----------------------------------------------------------------------------------------------------------------------------
+                                let modelLoader = new THREE.GLTFLoader(); // Bliver brugt til at hente 3D modellen.
+                                let loader = new THREE.TextureLoader(); // Bliver brugt til at hente 2D texturen.
+
+                                
+                                
+                                console.log('TEXTURE: '+element[2])
+                                console.log('MODEL: '+element[1])
+                                var texture = loader.load(element[2]) // henter 2D texturen til en variable.
+                                texture.flipY = false; // saetter til false, for at 2D texturen bliver sat korrekt paa 3D modellen.
+                                
+                                modelLoader.load(element[1], function(gltf){
+                                    var mesh;
+                                    mesh = gltf.scene;
+                                    mesh.scale.set(1,1,1);
+                                    // Tildeler textur til modellen.
+                                    /*mesh.traverse ( ( o ) => {
+                                        if ( o.isMesh ) {
+                                        o.material.map = texture
+                                        }
+                                        
+                                    });*/
+                                    
+                                    
+                                    /*scene.add(mesh);
+                                    mesh.position.x = tempX;
+                                    mesh.position.y = tempY;
+                                    mesh.position.z = tempZ;*/
+                                    mesh.rotation.y = element[3] * Math.PI / 180
+                                    var geometry = modelGeometry.clone();
+                                    geometry.translate(tempX,tempY,tempZ);
+                                    console.log('geometry: '+geometry);
+                                    models.push(geometry);
+                                    })
+                                // TEST SECTION END------------------------------------------------------------------------------------------------------------------------------
                                 break;
                                 
                             }
@@ -420,1644 +534,23 @@ export default class Room{
             }
             
         }
+        console.log("Models length "+models.length);
+        /*for (let index = 0; index < models.length; index++) {
+            console.log("Models index "+index+" model: "+models.index);
+            scene.add(models[index]);
+            
+        }*/
+        if(models.length > 0){
+            let geometryModels = BufferGeometryUtils.mergeBufferGeometries(models);
+		
+            let materialModels = new THREE.MeshStandardMaterial({ map: wall});
+            let meshModels = new THREE.Mesh(geometryModels,materialModels);
+            
+		    scene.add(meshModels);
+        }
+        
         console.log(roomId+" Done.");
     }
     
-    /*Room_a(startPosition, scene){
-        var roomId = 'Room_a'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case '1':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case '2':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case '3':
-                        break;
-                    case '4':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case '5':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case '6':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.");
-    }
     
-    Room_b(startPosition, scene){
-        let modelLoader = new THREE.GLTFLoader();
-        var roomId = "Room_b"; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                    // gemmer placeringsposition i variabler, til at give modellerne deres position
-                    let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-					let tempY = (-2.5*this.TILESIZE);
-                    let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case '1':
-                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case '2':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-
-                    case '3':
-                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,180)
-                        break;
-
-                    case '4':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,-90)
-                        break;
-
-                    case '5':
-                        this.make_Model(this.modelArray[7],15, scene,tempX,tempY,tempZ,0)
-                        break;
-
-                    case '6':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case '7':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case '8':
-                        this.make_Model(this.modelArray[12],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_c(startPosition, scene){
-        var roomId = "Room_c"; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                    // gemmer placeringsposition i variabler, til at give modellerne deres position
-                    let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-					let tempY = (-2.5*this.TILESIZE);
-                    let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-
-                    case 'b':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
-                        break;
-
-                    case 'B':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
-                        break;
-
-                    case 'c':
-                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,0)
-                        break;
-
-                    case 'C':
-                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[0],5, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_d(startPosition, scene){
-        let modelLoader = new THREE.GLTFLoader();
-        var roomId = 'Room_d'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt');  // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                    this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                    this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'B':
-                    this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'g':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'h':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_e(startPosition, scene){
-        let modelLoader = new THREE.GLTFLoader();
-        var roomId = 'Room_e'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'g':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'h':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,-90)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_f(startPosition, scene){
-        var roomId = 'Room_f'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,-90)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_g(startPosition, scene){
-        var roomId = 'Room_g'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_h(startPosition, scene){
-        var roomId = 'Room_h'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_i(startPosition, scene){
-        var roomId = 'Room_i'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[6],0, scene,tempX,tempY,tempZ,-180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[7],15, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_j(startPosition, scene){
-        var roomId = 'Room_j'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[13],17, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],14, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],14, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_k(startPosition, scene){
-        var roomId = 'Room_k'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_n(startPosition, scene){
-        var roomId = 'Room_n'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[12],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[4],7, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,-90)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_m(startPosition, scene){
-        var roomId = 'Room_m'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_o(startPosition, scene){
-        var roomId = 'Room_o'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_p(startPosition, scene){
-        var roomId = 'Room_p'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_q(startPosition, scene){
-        var roomId = 'Room_q'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_r(startPosition, scene){
-        var roomId = 'Room_r'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_s(startPosition, scene){
-        var roomId = 'Room_s'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0],true,false)
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_t(startPosition, scene){
-        var roomId = 'Room_t'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0],true,false)
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_u(startPosition, scene){
-        var roomId = 'Room_u'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,0,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[14],18, scene,tempX,tempY,tempZ,0)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    // Floor 1
-    Room_A(startPosition, scene){
-        var roomId = 'Room_A1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[15],8, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[15],8, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],0, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,45)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,135)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_B(startPosition, scene){
-        var roomId = 'Room_B1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_C(startPosition, scene){
-        var roomId = 'Room_C1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_D(startPosition, scene){
-        var roomId = 'Room_D1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_E(startPosition, scene){
-        var roomId = 'Room_E1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_F(startPosition, scene){
-        var roomId = 'Room_F1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_G(startPosition, scene){
-        var roomId = 'Room_G1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0],false,true)
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_H(startPosition, scene){
-        var roomId = 'Room_H1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,180)
-                        break;
-                        
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_I(startPosition, scene){
-        var roomId = 'Room_I1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'g':
-                        this.make_Model(this.modelArray[15],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'G':
-                        this.make_Model(this.modelArray[15],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_J(startPosition, scene){
-        var roomId = 'Room_J1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'c':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'C':
-                        this.make_Model(this.modelArray[11],10, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'd':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'D':
-                        this.make_Model(this.modelArray[5],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'e':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'E':
-                        this.make_Model(this.modelArray[2],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'f':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'F':
-                        this.make_Model(this.modelArray[1],2, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'g':
-                        this.make_Model(this.modelArray[15],4, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'G':
-                        this.make_Model(this.modelArray[15],4, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'h':
-                        this.make_Model(this.modelArray[8],16, scene,tempX,tempY,tempZ,-90)
-                        break;
-                    case 'H':
-                        this.make_Model(this.modelArray[8],16, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'i':
-                        this.make_Model(this.modelArray[10],6, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'I':
-                        this.make_Model(this.modelArray[10],6, scene,tempX,tempY,tempZ,180)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_K(startPosition, scene){
-        var roomId = 'Room_K1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_M(startPosition, scene){
-        var roomId = 'Room_M1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_N(startPosition, scene){
-        var roomId = 'Room_N1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,0)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_O(startPosition, scene){
-        var roomId = 'Room_O1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[12],1, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[12],1, scene,tempX,tempY,tempZ,180)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_P(startPosition, scene){
-        var roomId = 'Room_P1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                    case ' ':
-                        break;
-                    case 'a':
-                        this.make_Model(this.modelArray[10],6, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'A':
-                        this.make_Model(this.modelArray[10],6, scene,tempX,tempY,tempZ,180)
-                        break;
-                    case 'b':
-                        this.make_Model(this.modelArray[8],16, scene,tempX,tempY,tempZ,90)
-                        break;
-                    case 'B':
-                        this.make_Model(this.modelArray[8],16, scene,tempX,tempY,tempZ,-90)
-                        break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_Q(startPosition, scene){
-        var roomId = 'Room_Q1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                case ' ':
-                    break;
-                case 'a':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                    break;
-                case 'A':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                    break;
-                case 'b':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,90)
-                    break;
-                case 'B':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                    break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_R(startPosition, scene){
-        var roomId = 'Room_R1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                case ' ':
-                    break;
-                case 'a':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                    break;
-                case 'A':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                    break;
-                case 'b':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,90)
-                    break;
-                case 'B':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                    break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_S(startPosition, scene){
-        var roomId = 'Room_S1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                case ' ':
-                    break;
-                case 'a':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                    break;
-                case 'A':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                    break;
-                case 'b':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,90)
-                    break;
-                case 'B':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                    break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_T(startPosition, scene){
-        var roomId = 'Room_T1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0],false,true)
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                case ' ':
-                    break;
-                case 'a':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                    break;
-                case 'A':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                    break;
-                case 'b':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,90)
-                    break;
-                case 'B':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                    break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }
-
-    Room_U(startPosition, scene){
-        var roomId = 'Room_U1'; // Id for rummet, vigtigt at det stemmer overens med rummets tekstfil.
-        console.log(roomId+" Running.")
-        var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,1,room.length,room[0].length,startPosition[1],startPosition[0])
-        for (let x = 0; x < room.length; x++) {
-            for (let y = 0; y < room[x].length; y++) {
-                // gemmer placeringsposition i variabler, til at give modellerne deres position
-                let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE) + (1*3.5);
-                let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
-                switch(room[x][y]){
-                case ' ':
-                    break;
-                case 'a':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,-90)
-                    break;
-                case 'A':
-                    this.make_Model(this.modelArray[3],1, scene,tempX,tempY,tempZ,180)
-                    break;
-                case 'b':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,90)
-                    break;
-                case 'B':
-                    this.make_Model(this.modelArray[11],12, scene,tempX,tempY,tempZ,180)
-                    break;
-                }
-                
-            }
-            
-        }
-        console.log(roomId+" Done.")
-    }*/
 }
