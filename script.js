@@ -17,6 +17,18 @@ let time = new THREE.Clock();
 
 level.generate(scene);
 
+// himmel: Giver fejlbesked når den ikke ligger i hovedscriptet
+// er flyttet tilbage
+const loader = new THREE.TextureLoader();
+const bg = loader.load(
+'assets/textures/sky.jpg',
+() => {
+const rt = new THREE.WebGLCubeRenderTarget(bg.image.height);
+rt.fromEquirectangularTexture(screen.renderer,bg);
+rt.fromEquirectangularTexture(screen.renderer2,bg);
+scene.background = rt.texture;
+});
+
 time.start();
 
 // gameloop
