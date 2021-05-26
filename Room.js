@@ -51,16 +51,21 @@ export default class Room{
             './assets/Models/Cardboxes.gltf',
             './assets/Models/Couch2V1Blank.gltf',
             './assets/Models/CanteenTableV1.gltf',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/',
-            './assets/'
+            './assets/Models/Table1V1.gltf',
+            './assets/Models/Table1WideV1.gltf',
+            './assets/Models/Table2V1.gltf',
+            './assets/Models/Table2WideV1.gltf',
+            './assets/Models/DoorV1.gltf',
+            './assets/Models/lokum.gltf',
+            './assets/Models/Stair1V1.gltf',
+            './assets/Models/Stair2V1.gltf',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/',
+            './assets/Models/'
         ]
 
         this.presetsArray = [
@@ -114,7 +119,7 @@ export default class Room{
                 ['y',this.modelArray[1],this.textureArray[1],0],
                 ['Y',this.modelArray[1],this.textureArray[1],0],
                 ['z',this.modelArray[1],this.textureArray[1],0],
-                ['Z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0]
             ],
             [ //Netvaerks/robot/vaerksted/VR-lab, Netvaerkskontor, Lager og Logistik id: 1
                 ['a',this.modelArray[4],this.textureArray[7],0], // Cisco rack
@@ -166,7 +171,7 @@ export default class Room{
                 ['y',this.modelArray[5],this.textureArray[1],90], // Skab
                 ['Y',this.modelArray[5],this.textureArray[1],-90], // Skab
                 ['z',this.modelArray[13],this.textureArray[17],180], // VR stander
-                ['Z',this.modelArray[12],this.textureArray[1],90], // Printer
+                ['Z',this.modelArray[12],this.textureArray[1],90] // Printer
             ],
             [ // Personale-rum/kontor, Koekken/kantine id: 2
                 ['a',this.modelArray[15],this.textureArray[8],0], // Sofa
@@ -213,12 +218,64 @@ export default class Room{
                 ['U',this.modelArray[10],this.textureArray[6],180], // koekenbord
                 ['v',this.modelArray[10],this.textureArray[6],90], // koekenbord
                 ['V',this.modelArray[10],this.textureArray[6],-90], // koekenbord
+                ['x',this.modelArray[17],this.textureArray[15],0], // Moedebord
+                ['X',this.modelArray[17],this.textureArray[15],90], // Moedebord
+                ['y',this.modelArray[18],this.textureArray[15],0], // Moedebord bred
+                ['Y',this.modelArray[18],this.textureArray[15],90], // Moedebord bred
+                ['z',this.modelArray[19],this.textureArray[15],90], // Hoejt modebord
+                ['Z',this.modelArray[20],this.textureArray[15],90] // Hoejt modebord bred
+            ],
+            [ // Gange, trapper og lign. lavindrettede rum id: 3
+                ['a',this.modelArray[21],this.textureArray[1],0], // Doer
+                ['A',this.modelArray[21],this.textureArray[1],180], // Doer
+                ['b',this.modelArray[21],this.textureArray[1],90], // Doer
+                ['B',this.modelArray[21],this.textureArray[1],-90], // Doer
+                ['c',this.modelArray[22],this.textureArray[1],0], // Lokum
+                ['C',this.modelArray[22],this.textureArray[1],180], // Lokum
+                ['d',this.modelArray[22],this.textureArray[1],90], // Lokum
+                ['D',this.modelArray[22],this.textureArray[1],-90], // Lokum
+                ['e',this.modelArray[23],this.textureArray[18],0], // Trappe 1
+                ['E',this.modelArray[24],this.textureArray[18],-90], // Trappe 2
+                ['f',this.modelArray[9],this.textureArray[11],0], // Info stander
+                ['F',this.modelArray[9],this.textureArray[11],180], // Info stander
+                ['g',this.modelArray[9],this.textureArray[11],90], // Info stander
+                ['G',this.modelArray[9],this.textureArray[11],-90], // Info stander
+                ['h',this.modelArray[15],this.textureArray[8],0], // Sofa
+                ['H',this.modelArray[15],this.textureArray[8],180], // Sofa
+                ['i',this.modelArray[15],this.textureArray[8],90], // Sofa
+                ['I',this.modelArray[15],this.textureArray[8],-90], // Sofa
+                ['j',this.modelArray[1],this.textureArray[1],0],
+                ['J',this.modelArray[1],this.textureArray[1],0],
+                ['k',this.modelArray[1],this.textureArray[1],0],
+                ['K',this.modelArray[1],this.textureArray[1],0],
+                ['l',this.modelArray[1],this.textureArray[1],0],
+                ['L',this.modelArray[1],this.textureArray[1],0],
+                ['m',this.modelArray[1],this.textureArray[1],0],
+                ['M',this.modelArray[1],this.textureArray[1],0],
+                ['n',this.modelArray[1],this.textureArray[1],0],
+                ['N',this.modelArray[1],this.textureArray[1],0],
+                ['o',this.modelArray[1],this.textureArray[1],0],
+                ['O',this.modelArray[1],this.textureArray[1],0],
+                ['p',this.modelArray[1],this.textureArray[1],0],
+                ['P',this.modelArray[1],this.textureArray[1],0],
+                ['q',this.modelArray[1],this.textureArray[1],0],
+                ['Q',this.modelArray[1],this.textureArray[1],0],
+                ['r',this.modelArray[1],this.textureArray[1],0],
+                ['R',this.modelArray[1],this.textureArray[1],0],
+                ['s',this.modelArray[1],this.textureArray[1],0],
+                ['S',this.modelArray[1],this.textureArray[1],0],
+                ['t',this.modelArray[1],this.textureArray[1],0],
+                ['T',this.modelArray[1],this.textureArray[1],0],
+                ['u',this.modelArray[1],this.textureArray[1],0],
+                ['U',this.modelArray[1],this.textureArray[1],0],
+                ['v',this.modelArray[1],this.textureArray[1],0],
+                ['V',this.modelArray[1],this.textureArray[1],0],
                 ['x',this.modelArray[1],this.textureArray[1],0],
                 ['X',this.modelArray[1],this.textureArray[1],0],
                 ['y',this.modelArray[1],this.textureArray[1],0],
                 ['Y',this.modelArray[1],this.textureArray[1],0],
                 ['z',this.modelArray[1],this.textureArray[1],0],
-                ['Z',this.modelArray[1],this.textureArray[1],0],
+                ['Z',this.modelArray[1],this.textureArray[1],0]
             ],
             [
                 ['a',this.modelArray[1],this.textureArray[1],0],
@@ -270,21 +327,22 @@ export default class Room{
                 ['y',this.modelArray[1],this.textureArray[1],0],
                 ['Y',this.modelArray[1],this.textureArray[1],0],
                 ['z',this.modelArray[1],this.textureArray[1],0],
-                ['Z',this.modelArray[1],this.textureArray[1],0],
-            ]
+                ['Z',this.modelArray[1],this.textureArray[1],0]
+			]
+		
         ]
-
-        
     }
 
     makeCeiling(scene,floor_number,floor_height,floor_width,row,column, makeFloor = true, makeCeiling = true){
+			
 						
 		const loader = new THREE.TextureLoader();
 		const heightMap = loader.load('assets/Textures/noise.jpg');
 		const linoleum = loader.load('assets/Textures/linoleum.jpg');
 		const ceiling = loader.load('assets/Textures/ceiling.jpg');
 		floor_width--;
-    
+
+		
 		// kig OGSÅ ned i array
 		// lav loft
 		if(makeCeiling == true){
@@ -301,7 +359,7 @@ export default class Room{
 			scene.add(mesh_roof);
 		}
 
-    
+		
 		// lav gulv
 		if(makeFloor == true){
 			var geometry_floor = new THREE.BoxGeometry(floor_width*this.TILESIZE+(this.TILESIZE*1), this.TILESIZE, floor_height*this.TILESIZE+(this.TILESIZE*1));
@@ -316,7 +374,7 @@ export default class Room{
 			mesh_floor.position.z = row*this.TILESIZE + (this.TILESIZE * (floor_height/2));
 			scene.add(mesh_floor);
 		}
-    
+		
 	}
     
     load_txt_file(file_name){
@@ -376,8 +434,8 @@ export default class Room{
         let modelLoader = new THREE.GLTFLoader();
         let loader = new THREE.TextureLoader();
         
-        console.log('TEXTURE: '+modelTexture)
-        console.log('MODEL: '+model)
+        //console.log('TEXTURE: '+modelTexture)
+        //console.log('MODEL: '+model)
         var texture = loader.load(modelTexture)
         texture.flipY = false;
         
@@ -401,45 +459,64 @@ export default class Room{
             })
     }
 
-    Make_Room(startPosition,scene,roomPreset,roomId,floor,text1 = 'NA',text2 = 'NA'){
-        console.log(roomId+" Running.")
+    Make_Room(startPosition,scene,roomPreset,roomId,floor,text1 = 'NA',text2 = 'NA',makeFloor = true, makeCeiling = true){
+        //console.log(roomId+" Running.")
         var room =  this.load_txt_file('assets/Rooms/'+roomId+'.txt'); // Indlæser rummets array fra en tekstfil.
-        this.makeCeiling(scene,floor,room.length,room[0].length,startPosition[1],startPosition[0])
-   		
-		//burde være dynamisk
-		//this.make_Text(scene,floor,text1,(startPosition[0] + room.length/2)*this.TILESIZE, (startPosition[1] + room[0].length/2)*this.TILESIZE);
-		this.make_Text(scene,floor,text1,(startPosition[0] + room[0].length/2)*this.TILESIZE,(startPosition[1] + room.length/2)*this.TILESIZE);
 
+        let models = [];
+        let modelGeometry = new THREE.BufferGeometry().fromGeometry(new THREE.BoxGeometry(1,1,1));
+        this.make_Text(scene,floor,text1,(startPosition[0] + room[0].length/2)*this.TILESIZE,(startPosition[1] + room.length/2)*this.TILESIZE);
+
+        this.makeCeiling(scene,floor,room.length,room[0].length,startPosition[1],startPosition[0],makeFloor,makeCeiling)
+        
 		for (let x = 0; x < room.length; x++) {
             for (let y = 0; y < room[x].length; y++) {
                 // gemmer placeringsposition i variabler, til at give modellerne deres position
                 let tempX = ((startPosition[0]+y)*this.TILESIZE + 0.5*this.TILESIZE);
-                let tempY = (-2.5*this.TILESIZE)+ (floor*3.5);;
+                let tempY = (-2.5*this.TILESIZE)+ (floor*3.5);
                 let tempZ = ((startPosition[1]+x)*this.TILESIZE + 0.5*this.TILESIZE);
-                    console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+
+                //console.log(roomId+" No. "+x+" "+y+" PositionX: "+tempX +" PositionY: "+tempY+" PositionZ: "+tempZ)
+                    // Switch casen undersoeger positionen i lokalets tekstdokument, for at indrette lokalet,
                 switch(room[x][y]){
-                    case ' ':
+                    case ' ': // i tilfaelde af at der ikke skal vaere noget paa den position
                         break;
-                    case '.':
+                    case '.': // i tilfaelde af at der ikke skal vaere noget paa den position, i nogle dokumenter, bliver dette brugt til at have overblik over raekker og kolonner.
                         break;
-                    default:
+                    // hvis der skal indsaettes et moebel paa positionen, bliver koden koert i default, dette er for at optimere vedligeholdelse, til kun at skulle aendre 1 case i tilfaelde af aendringer
+                    default: 
                     
+                        // for-loop, til at finde det korrekte moebel i det angivede preset, der svaere til tegnet i lokalets tekstdokument.
                         for (let index = 0; index < this.presetsArray[roomPreset].length; index++) {
-                            var element = this.presetsArray[roomPreset][index];
+
+                            var element = this.presetsArray[roomPreset][index]; // Gemmer positionen i det angivende preset array, til variablen "element"
                             
-                            if(element[0] == room[x][y]){
-                                console.log('!!!!!!!!!!!!!! '+element[0])
-                                console.log('!!!!!!!!!!!!!! '+element[1])
-                                console.log('!!!!!!!!!!!!!! '+element[2])
-                                this.make_Model(element[1],element[2],element[3], scene, tempX, tempY, tempZ);
+                            if(element[0] == room[x][y]){ // if-saetningen undersoeger om tegnet angivet til positionen i det angivende preset array, er det samme som positionen i lokalets tekstdokument.
+                                // skriver til konsol, for at kunne debugge hvis der er noget der ikke virker.
+                                //console.log('Room: '+roomId+' Letter: '+element[0])
+                                //console.log('Room: '+roomId+' Model: '+element[1])
+                                //console.log('Room: '+roomId+' Texture: '+element[2])
+
+								this.make_Model(element[1],element[2],element[3], scene, tempX, tempY, tempZ);
+
                                 break;
                             }
                         }
                         break;
                 }
-            }
+            } 
         }
+        //console.log("Models length "+models.length);
 
-        console.log(roomId+" Done.");
+        if(models.length > 0){
+            let geometryModels = BufferGeometryUtils.mergeBufferGeometries(models);
+		
+            let materialModels = new THREE.MeshStandardMaterial({ map: wall});
+            let meshModels = new THREE.Mesh(geometryModels,materialModels);
+            
+		    scene.add(meshModels);
+        }
+        
+        //console.log(roomId+" Done.");
     }
 }

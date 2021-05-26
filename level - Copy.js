@@ -207,127 +207,126 @@ export default class Level{
 						
 						break;
 					case "a": // Forkert moeblering, skal laves om til printerrum
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_a',0,'elev\nprinter\nrum',' ')
+					makeRoom.Make_Room(roomStartPosition, scene,0,'Room_a',0,'elev\nprinter\nrum',' ');
 						break;
 					case "b":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_b',0,'lab\n1',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_b',0,'lab\n1',' ');
 						break;
 					case "c":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_c',0,'lab\n2',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_c',0,'lab\n2',' ');
 						break;
 					case "d":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_d',0,'elev\nkontor',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_d',0,'elev\nkontor',' ');
 						break;
 					case "e":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_e',0,'elev\nkontor\n2',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_e',0,'elev\nkontor\n2',' ');
 						break;
 					case "f":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_f',0,'server',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_f',0,'server',' ');
 						break;
 					case "g":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_g',0,'help\ndesk',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_g',0,'help\ndesk',' ');
 						break;
 					case "h":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_h',0,'drift',' ')
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_h',0,'drift',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_h',0,'drift',' ');
 						break;
 					case "i":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_i',0,'lab\n4',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_i',0,'lab\n4',' ');
 						break;
 					case "j":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_j',0,'lab\n3',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_j',0,'lab\n3',' ');
 						break;
 					case "k": // Mangler modeller, mødelokale
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_k',0,'mode\nlokale\n2',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_k',0,'mode\nlokale\n2',' ');
 						break;
 					case "n": // Mangler modeller, mødelokale
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_n',0,'mode\nlokale\n1',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_n',0,'mode\nlokale\n1',' ');
 						break;
 					case "m":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_m',0,'lager',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_m',0,'lager',' ');
 						break;
 					case "o":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_o',0,'',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_o',0,'',' ');
 						break;
 					case "p":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_p',0,'',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,3,'Room_p',0,'',' ');
 						break;
 					case "q":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_q',0,'',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_q',0,'',' ');
 						break;
 					case "r":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_r',0,'',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_r',0,'',' ');
 						break;
-					case "s": // mangler indretning, skal vaere uden loft
-						makeRoom.Make_Room(roomStartPosition, scene,3,'Room_s',0,'trappe',' ',true,false)
+					case "s": // mangler indretning
+						makeRoom.Make_Room(roomStartPosition, scene,3,'Room_s',0,'trappe',' ',true,false);
 						break;
-					case "t": // Mangler modeller, skal vaere uden loft
-						makeRoom.Make_Room(roomStartPosition, scene,3,'Room_t',0,'trappe\n2',' ',true,false)
+					case "t": // Mangler modeller
+						makeRoom.Make_Room(roomStartPosition, scene,3,'Room_t',0,'trappe\n2',' ',true,false);
 						break;
 					case "u": // Mangler indretning, 2x WC-rum
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_u',0,'wc',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,3,'Room_u',0,'wc',' ');
 						break;
 					case "A":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_A1',1,'center\nchef',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_A1',1,'center\nchef',' ');
 						break;
 					case "B":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_B1',1,'team\nkoordinator',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_B1',1,'team\nkoordinator',' ');
 						break;
 					case "C":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_C1',1,'elev\nkontor\n3',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_C1',1,'elev\nkontor\n3',' ');
 						break;
 					case "D":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_D1',1,'elev\nkontor\n4','')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_D1',1,'elev\nkontor\n4',' ');
 						break;
 					case "E": // MANGLER OPDATERING TIL INDRETNING, WC
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_E1',1,'wc\nm/k',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_E1',1,'wc\nm/k',' ');
 						break;
 					case "F": // MANGLER OPDATERING TIL INDRETNING, WC
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_F1',1,'wc\nm',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_F1',1,'wc\nm',' ');
 						break;
 					case "G": // MANGLER OPDATERING TIL INDRETNING, Skal være uden gulv
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_G1',1,'trappe',' ',false)
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_G1',1,'trappe',' ',false);
 						break;
 					case "H":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_H1',1,'hvile\nrum',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_H1',1,'hvile\nrum',' ');
 						break;
 					case "I":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_I1',1,'instr.\nlokale',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_I1',1,'instruktor\nlokale',' ');
 						break;
 					case "J":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_J1',1,'kantine',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_J1',1,'kantine',' ');
 						break;
 					case "K":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_K1',1,'elev\nkontor\n5',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_K1',1,'elev\nkontor\n5',' ');
 						break;
 					case "M":
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_M1',1,'elev\nkontor\n6',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_M1',1,'elev\nkontor\n6',' ');
 						break;
 					case "N": // MANGLER OPDATERING TIL INDRETNING
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_N1',1,'elev\nkontor\n7',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_N1',1,'elev\nkontor\n7',' ');
 						break;
 					case "O": // MANGLER OPDATERING TIL INDRETNING
-						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_O1',1,'printer\nrum',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,1,'Room_O1',1,'printer\nrum',' ');
 						break;
 					case "P":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_P1',1,'personale\nkokken',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_P1',1,'personale\nkokken',' ');
 						break;
 					case "Q":
-						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_Q1',1,'center\nleder',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,2,'Room_Q1',1,'center\nleder',' ');
 						break;
 					case "R":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_R1',1,'',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_R1',1,'',' ');
 						break;
 					case "S":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_S1',1,'',' ')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_S1',1,'',' ');
 						break;
 					case "T":
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_T1',1,'',' ',false)
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_T1',1,'',' ',false);
 						break;
 					case "U": // MANGLER OPDATERING TIL INDRETNING
-						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_U1',1,'','wc\nm/k')
+						makeRoom.Make_Room(roomStartPosition, scene,0,'Room_U1',1,'wc\nm/k',' ');
 						break;
-					}
+						}
 			}
 		}
 	}
@@ -446,11 +445,11 @@ export default class Level{
 		
 		// test
 		var lightl = new THREE.PointLight(0xFFFFDD,1,80,2);
-		lightl.position.set(5,7,7);
+		lightl.position.set(5,3,7);
 		scene.add(lightl);
 						
 		var lightr = new THREE.PointLight(0xFFFFDD,1,80,2);
-		lightr.position.set(30,7,7);
+		lightr.position.set(30,3,7);
 		scene.add(lightr);
 
 		
