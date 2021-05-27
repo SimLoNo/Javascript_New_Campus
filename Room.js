@@ -331,15 +331,20 @@ export default class Room{
 			]
 		
         ]
+	
+    this.modelLoader = new THREE.GLTFLoader();
+    this.loader = new THREE.TextureLoader();
+	this.fontLoader = new THREE.FontLoader();
+
     }
 
     makeCeiling(scene,floor_number,floor_height,floor_width,row,column, makeFloor = true, makeCeiling = true){
 			
 						
-		const loader = new THREE.TextureLoader();
-		const heightMap = loader.load('assets/Textures/noise.jpg');
-		const linoleum = loader.load('assets/Textures/linoleum.jpg');
-		const ceiling = loader.load('assets/Textures/ceiling.jpg');
+		
+		const heightMap = this.loader.load('assets/Textures/noise.jpg');
+		const linoleum = this.loader.load('assets/Textures/linoleum.jpg');
+		const ceiling = this.loader.load('assets/Textures/ceiling.jpg');
 		floor_width--;
 
 		
@@ -407,8 +412,7 @@ export default class Room{
 	}
 	make_Text(scene,floor,roomName, x, z){
 		// metoden her kan optimeres
-		const fontLoader = new THREE.FontLoader();
-		fontLoader.load('./assets/fonts/helvetiker_regular.typeface.json', function(font){
+		this.fontLoader.load('./assets/fonts/helvetiker_regular.typeface.json', function(font){
 			const color = 0xAADDFF;
 			const matDark = new THREE.LineBasicMaterial({color: color, side: THREE.DoubleSide});
 			const matLite = new THREE.MeshBasicMaterial({color: color, transparent: false, opacity: 1, side: THREE.DoubleSide});
@@ -431,15 +435,13 @@ export default class Room{
 	}
     // Metode der bliver kaldt, til at indsætte modeller i banen.
     make_Model(model,modelTexture,direction,scene,tempX,tempY,tempZ){
-        let modelLoader = new THREE.GLTFLoader();
-        let loader = new THREE.TextureLoader();
         
         //console.log('TEXTURE: '+modelTexture)
         //console.log('MODEL: '+model)
-        var texture = loader.load(modelTexture)
+        var texture = this.loader.load(modelTexture)
         texture.flipY = false;
         
-        modelLoader.load(model, function(gltf){
+        this.modelLoader.load(model, function(gltf){
             var mesh;
             mesh = gltf.scene;
             mesh.scale.set(1,1,1);
